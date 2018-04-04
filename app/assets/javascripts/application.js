@@ -12,3 +12,21 @@
 //
 //= require rails-ujs
 //= require_tree .
+
+// $(document).ready(function() {
+//     $('.about a').click(function() {
+//       alert("hey")
+//     })
+// });
+
+const aboutLink = document.querySelector('.about p')
+
+aboutLink.addEventListener('click', function() {
+  const aboutText = document.querySelector('.about .hidden')
+  aboutText.style.display = "block"
+  aboutLink.style.display = "none"
+  aboutText.addEventListener('click', function() {
+    aboutText.style.display = "none"
+    aboutLink.style.display = "block"
+  })
+})
