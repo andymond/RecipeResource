@@ -19,14 +19,26 @@
 //     })
 // });
 
-const aboutLink = document.querySelector('.about p')
+const about = document.querySelector('.about p')
+const register = document.querySelector('.register p')
+const login = document.querySelector('.login p')
 
-aboutLink.addEventListener('click', function() {
+about.addEventListener('click', function() {
   const aboutText = document.querySelector('.about .hidden')
-  aboutText.style.display = "block"
-  aboutLink.style.display = "none"
+  aboutText.style.display = "flex"
+  about.style.display = "none"
   aboutText.addEventListener('click', function() {
     aboutText.style.display = "none"
-    aboutLink.style.display = "block"
+    about.style.display = "block"
   })
+})
+
+register.addEventListener('click', function() {
+  const registerForm = document.querySelector('.register .hidden')
+  registerForm.classList.toggle('drop')
+})
+
+login.addEventListener('click', function() {
+  const loginField = document.querySelector('.login .hidden')
+  loginField.classList.toggle('drop')
 })
