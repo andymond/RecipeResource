@@ -3,12 +3,20 @@
   <head>
     <title>KitchenKeeper</title>
     <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Raleway:400,500|Roboto" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
 
   <body>
-    <%= yield %>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: name %>
+    <% end %>
+    <% unless current_user.nil? %>
+      <%= render partial: "layouts/user_card" %>
+    <% end %>
+    <div id="main">
+      <%= yield %>
+    </div>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
