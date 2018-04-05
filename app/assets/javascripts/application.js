@@ -23,6 +23,16 @@ const about = document.querySelector('.about p')
 const register = document.querySelector('.register p')
 const login = document.querySelector('.login p')
 
+function openNav() {
+    document.getElementById("userCard").style.width = "300px";
+    document.getElementById("main").style.marginLeft = "300px";
+}
+
+function closeNav() {
+    document.getElementById("userCard").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
 about.addEventListener('click', function() {
   const aboutText = document.querySelector('.about .hidden')
   aboutText.style.display = "flex"

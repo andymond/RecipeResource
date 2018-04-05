@@ -1,0 +1,28 @@
+$profile-blue: #a0e8ff;
+$toothpaste: #d8fbff;
+
+@mixin josefin {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+@mixin open-sans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+@mixin raleway {
+  font-family: 'Raleway', sans-serif;
+}
+
+@mixin column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin column-start {
+  display: flex;
+  flex-direction: column;
+  // justify-content: flex-start;
+  align-items: center;
+}
