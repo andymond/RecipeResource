@@ -1,0 +1,28 @@
+%span.open-card{onclick: "openNav()", style: "font-size:30px;cursor:pointer"}
+  &#9776;
+.user-card.my1.pb2.rounded-right{id: "userCard"}
+  .close-card
+    = link_to "#", class: "closebtn", onclick: "closeNav()" do
+      &times;
+  .user-name.mb1
+    = [current_user.first_name, current_user.last_name].join(" ")
+  = image_tag current_user.image_url, size: 200, class: "circle mb2"
+  .yelp-reviews.m1
+    %h4.m2
+      Current Yelp Reviews:
+    .review
+      from yelp: TEST REVIEW
+    .review
+      from yelp: TEST REVIEW
+    .review
+      from yelp: TEST REVIEW
+  .favorite-recipes.m2
+    .favorite
+      * TEST favorite
+    .favorite
+      * TEST favorite
+    .favorite
+      * TEST favorite
+  .user-options
+    = link_to "Settings", "#"
+    = link_to "Logout", logout_path, class: "logout"

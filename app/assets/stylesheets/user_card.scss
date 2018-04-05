@@ -1,0 +1,33 @@
+@import 'vars_mixins';
+
+.user-card {
+  z-index: 1;
+  width: 300px;
+  height: 95vh;
+  background-color: $profile-blue ;
+  overflow-x: hidden;
+  @include column-start;
+  transition: 0.5s;
+  .close-card {
+    width: 280px;
+    text-align: right;
+  }
+}
+
+
+.yelp-reviews, .favorite-recipes {
+  border-radius: 2px;
+  background-color: #FFFFFF9A;
+  width: 85%;
+}
+
+.review, .favorite {
+  padding: 10px;
+  &:hover { background-color: #FFFFFFAA; }
+}
+
+.user-options {
+  width: 280px;
+  display: flex;
+  justify-content: space-around;
+}
