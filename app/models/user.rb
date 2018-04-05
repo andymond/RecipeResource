@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  validates_uniqueness_of :email
+  validates_presence_of :email
+  before_save :authenticate
+  has_one :app_credential, dependent: :destroy
 
   def self.update_or_create(auth)
    user = User.find_by(uid: auth[:uid]) || User.new
@@ -16,4 +20,10 @@ class User < ApplicationRecord
    user.save!
    user
   end
+
+  private
+
+    def authenticate
+      raise ActiveRecord::Rollback if app_credential.nil? || app_credential.password_digest.nil?
+    end
 end
