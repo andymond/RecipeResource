@@ -17,7 +17,7 @@ def stub_omniauth
         email: "test@email.com",
         first_name: "testy",
         last_name: "mctesterson",
-        image: "fake_url"
+        image: "default-profile.png"
       },
       credentials: {
         token: "abcdefg12345",
