@@ -13,6 +13,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'basscss-rails'
 gem "haml-rails", "~> 1.0"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
