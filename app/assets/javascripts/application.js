@@ -22,6 +22,27 @@
 const about = document.querySelector('.about p')
 const register = document.querySelector('.register p')
 const login = document.querySelector('.login p')
+var open = false;
+
+function openNav() {
+    document.getElementById("userCard").style.width = "300px";
+    document.getElementById("main").style.marginLeft = "300px";
+    open = true
+}
+
+function closeNav() {
+    document.getElementById("userCard").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    open = false
+}
+
+function toggleNav() {
+  if(open == true) {
+    closeNav()
+  }else{
+    openNav()
+  }
+}
 
 about.addEventListener('click', function() {
   const aboutText = document.querySelector('.about .hidden')

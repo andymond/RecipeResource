@@ -1,0 +1,30 @@
+%span.fixed.open-card{onclick: "toggleNav()", onchange: "changeClick()", style: "font-size:30px;cursor:pointer"}
+  &#9776;
+.user-card.py2.rounded-right{id: "userCard"}
+  .user-name.mb1
+    = [current_user.first_name, current_user.last_name].join(" ")
+  .restaurant-name.mb1
+    testaurant-name
+  = image_tag current_user.image_url, size: 200, class: "circle mb1"
+  .yelp-reviews.m1
+    %h4.m1.center
+      Current Yelp Reviews
+    .review
+      from yelp: TEST REVIEW
+    .review
+      from yelp: TEST REVIEW
+    .review
+      from yelp: TEST REVIEW
+  .favorite-recipes.m1
+    =link_to "#" do
+      .favorite
+        * TEST favorite recipe
+    =link_to "#" do
+      .favorite
+        * TEST favorite recipe
+    =link_to "#" do
+      .favorite
+        * TEST favorite recipe
+  .user-options.mt3
+    = link_to "Settings", "#"
+    = link_to "Logout", logout_path, class: "logout"

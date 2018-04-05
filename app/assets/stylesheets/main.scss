@@ -1,14 +1,18 @@
-@mixin column-flex {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+@import 'vars_mixins';
 
 body {
-  font-family: 'Josefin Sans', sans-serif;
   margin: 0;
-  min-height: 90vh;
+  min-height: 760px;
+  a {
+    text-decoration: none;
+    &:hover {
+      color: $toothpaste;
+    }
+  }
+}
+
+#main {
+  transition: margin-left 0.5s;
 }
 
 .hidden {
@@ -16,11 +20,15 @@ body {
 }
 
 .welcome-header {
+  .title { padding: 20px; }
+  @include josefin;
   text-align: center;
   height: 130px;
+  min-width: 400px;
 }
 
 .welcome-options {
+  @include josefin;
   height: 62px;
   display: flex;
   align-items: center;
@@ -36,14 +44,14 @@ body {
 
 .drop {
   position: absolute;
-  top: 156px;
+  top: 140px;
   form {
     input {
       margin: 10px;
       width: 200px;
      }
-    @include column-flex;
+    @include column-center;
   }
-  @include column-flex;
+  @include column-center;
   width: 500px;
 }
