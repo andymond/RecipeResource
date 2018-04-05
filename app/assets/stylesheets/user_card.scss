@@ -1,21 +1,27 @@
 @import 'vars_mixins';
 
+.open-card {
+  z-index: 2;
+}
 .user-card {
+  h4 {
+    @include raleway-med;
+    font-weight: bold;
+   }
+  font-family: helvetica;
+  position: absolute;
   z-index: 1;
-  width: 300px;
-  height: 95vh;
+  width: 0px;
+  height: 700px;
   background-color: $profile-blue ;
   overflow-x: hidden;
   @include column-start;
   transition: 0.5s;
-  .close-card {
-    width: 280px;
-    text-align: right;
-  }
 }
 
-
 .yelp-reviews, .favorite-recipes {
+  .h4 { background-color: #FFFFFFBA}
+  min-width: 256px;
   border-radius: 2px;
   background-color: #FFFFFF9A;
   width: 85%;
@@ -26,8 +32,15 @@
   &:hover { background-color: #FFFFFFAA; }
 }
 
-.user-options {
+.user-options, .user-name, .restaurant-name {
+  @include raleway-med;
+  min-width: 256px;
+  min-height: 25px;
   width: 280px;
   display: flex;
   justify-content: space-around;
+}
+
+.restaurant-name {
+  font-size: 15px;
 }
