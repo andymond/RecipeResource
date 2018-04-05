@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe User, type: :model do
   it "creates or updates itself from oauth hash" do
-    auth_hash = {
+    auth = {
       provider: "google",
         uid: "12345678910",
         info: {
@@ -18,7 +18,7 @@ describe User, type: :model do
         }
       }
 
-    user = User.update_or_create(auth_hash)
+    user = User.update_or_create(auth)
 
     expect(user.provider).to eq("google")
     expect(user.uid).to eq("12345678910")
@@ -28,6 +28,6 @@ describe User, type: :model do
     expect(user.image_url).to eq("fake_url")
     expect(user.token).to eq("abcdefg12345")
     expect(user.refresh_token).to eq("12345abcdefg")
-    expect(user.expires_at).to eq(auth[:credentials][:expires_at])
+    expect(user.oauth_expires_at).to eq(auth[:credentials][:expires_at])
   end
 end
