@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :dashboard, only: [:index]
 
   resources :users, only: [:create]
-
+  resources :sessions, only: [:create]
+  
   get "/auth/google", as: :google_login
   get 'auth/:provider/callback',  to: 'gsessions#create'
   get '/logout', to: "sessions#destroy", as: :logout
