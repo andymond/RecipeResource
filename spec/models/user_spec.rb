@@ -20,14 +20,14 @@ describe User, type: :model do
 
     user = User.update_or_create(auth)
 
-    expect(user.provider).to eq("google")
-    expect(user.uid).to eq("12345678910")
+    expect(user.google_credential.provider).to eq("google")
+    expect(user.google_credential.uid).to eq("12345678910")
     expect(user.email).to eq("test@email.com")
     expect(user.first_name).to eq("testy")
     expect(user.last_name).to eq("mctesterson")
     expect(user.image_url).to eq("fake_url")
-    expect(user.token).to eq("abcdefg12345")
-    expect(user.refresh_token).to eq("12345abcdefg")
-    expect(user.oauth_expires_at).to eq(auth[:credentials][:expires_at])
+    expect(user.google_credential.token).to eq("abcdefg12345")
+    expect(user.google_credential.refresh_token).to eq("12345abcdefg")
+    expect(user.google_credential.oauth_expires_at).to eq(auth[:credentials][:expires_at])
   end
 end
