@@ -31,11 +31,10 @@ describe "Google Oauth" do
   it "allows user to register with google oauth2" do
     stub_omniauth
     visit root_path
-    find('.register').click
-    find('.google-oauth').click
+    click_link('google-oauth')
 
-    expect(page).to have_content("Successfully registered with Google")
     expect(current_path).to eq("/dashboard")
+    expect(page).to have_content("Successfully registered with Google")
     expect(page).to have_link("Logout")
   end
 end
