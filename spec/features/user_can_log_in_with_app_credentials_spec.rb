@@ -1,8 +1,7 @@
 require "rails_helper"
 
 describe "User logs in with app credentials" do
-  let(:ac)   { create(:app_credential) }
-  let(:user) { ac.user }
+  let(:user) { create(:user) }
 
   it "allows user to log in with correct credentials" do
     visit root_path
