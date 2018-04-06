@@ -45,13 +45,8 @@ function toggleNav() {
 }
 
 about.addEventListener('click', function() {
-  const aboutText = document.querySelector('.about .hidden')
-  aboutText.style.display = "flex"
-  about.style.display = "none"
-  aboutText.addEventListener('click', function() {
-    aboutText.style.display = "none"
-    about.style.display = "block"
-  })
+  const aboutText = document.querySelector('.about-div .hidden')
+  aboutText.classList.toggle('about-text')
 })
 
 register.addEventListener('click', function() {

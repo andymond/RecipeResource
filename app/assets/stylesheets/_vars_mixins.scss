@@ -1,23 +1,40 @@
-$profile-blue: #a0e8ff;
-$toothpaste: #d8fbff;
+$background-gray: #b4b9c15A;
 
-@mixin josefin {
-  font-family: 'Josefin Sans', sans-serif;
+@mixin header {
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: normal;
+    line-height: 46px;
+    font-size: 36px;
+    margin: 0 0 23px 0;
 }
 
-@mixin roboto {
-  font-family: 'Roboto', sans-serif;
+@mixin sub-header {
+    font-family: 'Cantarell', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin: 0 0 23px 0;
 }
 
-@mixin raleway {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
+@mixin text {
+  font-family: 'Cantarell', sans-serif;
+  font-weight: lighter;
+  line-height: 25px;
+  margin: 0 0 23px 0;
 }
 
-@mixin raleway-med {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 450;
+@mixin sm-text {
+  @include text;
+  font-size: 15px;
 }
+
+@mixin m-text {
+  @include text;
+  font-size: 20px;
+}
+
 
 @mixin column-center {
   display: flex;

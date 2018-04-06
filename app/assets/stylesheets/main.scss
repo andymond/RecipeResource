@@ -3,11 +3,10 @@
 body {
   margin: 0;
   min-height: 760px;
+  background-image: url("paper_background.png");
   a {
     text-decoration: none;
-    &:hover {
-      color: $toothpaste;
-    }
+    color: black;
   }
 }
 
@@ -20,20 +19,18 @@ body {
 }
 
 .welcome-header {
-  .title { padding: 20px; }
-  @include josefin;
-  text-align: center;
+  @include header;
   height: 130px;
   min-width: 400px;
 }
 
 .welcome-options {
-  @include josefin;
+  @include sub-header;
   height: 62px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #b4b9c1;
+  background-color: $background-gray;
   .option {
     display: flex;
     flex-direction: column;
@@ -44,7 +41,8 @@ body {
 
 .drop {
   position: absolute;
-  top: 140px;
+  top: 220px;
+  background: $background-gray;
   form {
     input {
       margin: 10px;
@@ -54,4 +52,13 @@ body {
   }
   @include column-center;
   width: 500px;
+}
+.about-div{
+  width: 700px;
+  margin: 0 auto;
+  .about-text {
+    @include m-text;
+    display: block;
+    text-align: center;
+  }
 }
