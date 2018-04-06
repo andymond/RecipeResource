@@ -19,6 +19,7 @@ body {
 }
 
 .welcome-header {
+  h2 { width: 187px; }
   @include header;
   height: 130px;
   min-width: 400px;
