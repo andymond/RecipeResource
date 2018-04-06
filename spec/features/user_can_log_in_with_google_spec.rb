@@ -1,13 +1,5 @@
 require "rails_helper"
 
-# Feature: Google Oauth
-#
-# Scenario: Unregistered user visits welcome
-# Given user wants to register
-# And has google account
-# When they click login with google link
-# Then are able to create a new account
-
 def stub_omniauth
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
@@ -17,7 +9,7 @@ def stub_omniauth
         email: "test@email.com",
         first_name: "testy",
         last_name: "mctesterson",
-        image: "fake_url"
+        image: "default-profile.png"
       },
       credentials: {
         token: "abcdefg12345",
@@ -28,7 +20,7 @@ def stub_omniauth
 end
 
 describe "Google Oauth" do
-  it "allows user to register with google oauth2" do
+  it "allows user to register & login with google oauth2" do
     stub_omniauth
     visit root_path
     click_link('google-oauth')

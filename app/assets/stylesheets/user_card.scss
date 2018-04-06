@@ -5,7 +5,7 @@
 }
 .user-card {
   h4 {
-    @include raleway-med;
+    @include sub-header;
     font-weight: bold;
    }
   font-family: helvetica;
@@ -13,7 +13,7 @@
   z-index: 1;
   width: 0px;
   height: 700px;
-  background-color: $profile-blue ;
+  background-color: $background-gray ;
   overflow-x: hidden;
   @include column-start;
   transition: 0.5s;
@@ -33,7 +33,7 @@
 }
 
 .user-options, .user-name, .restaurant-name {
-  @include raleway-med;
+  @include sub-header;
   min-width: 256px;
   min-height: 25px;
   width: 280px;

@@ -1,26 +1,36 @@
+- images = ["apron.svg", "cooking-pot.svg", "grater.svg", "mixer-2.svg", "recipe.svg", "tap-1.svg", "barbecue.svg", "corkscrew.svg", "ice-cube-tray.svg", "mixer-3.svg", "refrigerator.svg", "tap.svg", "beer.svg", "cup.svg", "jar.svg", "mixer.svg", "rolling-pin.svg", "tea-cup.svg", "blender.svg", "cupcake.svg", "kettle-1.svg", "mortar.svg", "salt.svg", "thermo.svg", "board.svg", "cutlery.svg", "kettle-2.svg", "mould-1.svg", "saucepan.svg", "timer-1.svg", "bottle-opener.svg", "dish.svg", "kettle.svg", "mould.svg", "sauces.svg", "timer.svg", "bowl.svg", "dishes.svg", "kitchen-board-1.svg", "napkin.svg", "scale.svg", "toaster.svg", "brush.svg", "dishwasher.svg", "kitchen-board.svg", "olive-oil.svg", "scoop.svg", "towel.svg", "chef-hat.svg", "eggs.svg", "knife-1.svg", "oven.svg", "skimmer.svg", "trash-1.svg", "cleaver.svg", "extractor-hood-1.svg", "knife.svg", "paddle.svg", "soap-dispenser.svg", "trash.svg", "cocktail-glass.svg", "extractor-hood.svg", "ladle-1.svg", "paella.svg", "soup.svg", "tray.svg", "coffee-cup.svg", "fork.svg", "ladle.svg", "peeler.svg", "spatula.svg", "wheat.svg", "coffee-grinder.svg", "freezer.svg",	"meal.svg", "pepper.svg", "squeezer.svg", "wine-bottle.svg", "coffee-maker-1.svg", "french-press.svg", "measuring-cup.svg",	"pizza-cutter.svg",	"stove.svg", "coffee-maker.svg", "fridge-1.svg", "microwave-oven.svg", "platter.svg", "strainer-1.svg", "coffee-pot.svg", "fridge.svg", "milk.svg", "pot.svg", "strainer.svg", "conserve.svg", "frying-pan.svg",	"mitten.svg",	"recipe-1.svg",	"table-1.svg", "cooking-pot-1.svg",	"glass.svg", "mixer-1.svg", "recipe-2.svg", "table.svg"]
+
 .welcome-header
-  .title
-    Recipe Library
-  .welcome-options
-    .about.option
-      %p About
-      .hidden
-        Test about KitchenKeeper
-    .register.option
-      %p Register
-      .hidden
-        = form_tag "/users" do
-          = email_field_tag :email, nil, placeholder: "your@email.com"
-          = password_field_tag :password, nil, placeholder: "password"
-          = password_field_tag :password_confirmation, nil, placeholder: "confirm password"
-          = submit_tag "Register"
-        \--- OR ---
-        = link_to "/auth/google", id: 'google-oauth' do
-          = image_tag "google_signin.png", size: "166x36"
-    .login.option
-      %p Log in
-      .hidden
-        = form_tag "/sessions" do
-          = email_field_tag :login_email, nil, placeholder: "your@email.com"
-          = password_field_tag :login_password, nil, placeholder: "password"
-          = submit_tag "Log in"
+  .title.flex.items-center.justify-center
+    %h2.mr2 recipe
+    = image_tag images.sample, size: 72
+    %h2.ml2 resource
+.welcome-options
+  .about.option
+    %p About
+  .register.option
+    %p Register
+    .hidden.register-form
+      = form_tag "/users" do
+        = text_field_tag :first_name, nil, placeholder: "first name"
+        = text_field_tag :last_name, nil, placeholder: "last name"
+        = email_field_tag :email, nil, placeholder: "your@email.com"
+        = password_field_tag :password, nil, placeholder: "password"
+        = password_field_tag :password_confirmation, nil, placeholder: "confirm password"
+        = submit_tag "Register"
+      \--- OR ---
+      = link_to "/auth/google", id: 'google-oauth' do
+        = image_tag "google_signin.png", size: "166x36"
+  .login.option
+    %p Log in
+    .hidden.login-form
+      = form_tag "/sessions" do
+        = email_field_tag :login_email, nil, placeholder: "your@email.com"
+        = password_field_tag :login_password, nil, placeholder: "password"
+        = submit_tag "Log in"
+
+.about-div.mt2.mx-auto
+  .hidden
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce malesuada, leo in dictum faucibus, tortor orci feugiat dolor, eget ultrices dolor metus nec ex. Etiam suscipit dolor eget velit laoreet, vel egestas arcu pharetra. Fusce dignissim ex vestibulum velit bibendum suscipit. Vestibulum consequat mollis tellus id fringilla. Nullam accumsan vel enim ac blandit. Nam blandit pulvinar massa nec blandit. Suspendisse iaculis consectetur luctus. Nam dapibus, sapien vitae consectetur elementum, dui tortor egestas risus, eu vehicula libero arcu ut dui.
+
+    Maecenas sodales facilisis vestibulum. Suspendisse pulvinar purus quis nibh facilisis fringilla. Sed faucibus leo elit, facilisis lobortis arcu ornare ut. Curabitur odio ipsum, cursus id porta et, placerat ac tellus. Curabitur semper imperdiet sem, sed bibendum nulla tempor ut. Vestibulum sed finibus nisi, id vulputate massa. Vestibulum nulla turpis, commodo at enim vitae, commodo luctus metus. Quisque commodo maximus lectus, molestie pretium nisi dapibus non.
