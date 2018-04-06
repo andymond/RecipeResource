@@ -42,8 +42,11 @@ body {
 
 .drop {
   position: absolute;
-  top: 220px;
+  top: 240px;
+  padding: 10px;
   background: $background-gray;
+  width: 230px;
+  border-radius: 3px;
   form {
     input {
       margin: 10px;
@@ -52,11 +55,11 @@ body {
     @include column-center;
   }
   @include column-center;
-  width: 500px;
 }
 .about-div{
   width: 700px;
   margin: 0 auto;
+  border-radius: 3px;
   .about-text {
     @include m-text;
     display: block;

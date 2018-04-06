@@ -22,12 +22,13 @@
 .yelp-reviews, .favorite-recipes {
   .h4 { background-color: #FFFFFFBA}
   min-width: 256px;
-  border-radius: 2px;
+  border-radius: 3px;
   background-color: #FFFFFF9A;
   width: 85%;
 }
 
 .review, .favorite {
+  h4 { margin: 0px; }
   padding: 10px;
   &:hover { background-color: #FFFFFFAA; }
 }
