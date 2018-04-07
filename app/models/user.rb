@@ -9,6 +9,12 @@ class User < ApplicationRecord
   has_many :roles, through: :user_roles
   has_many :restaurants, through: :user_roles
 
+  def set_restaurant(attrs)
+    set_default_role
+    restaurant = Restaurant.create(name: attrs[:name], zipcode: attrs[:zipcode])
+    user_roles.last.update(restaurant_id: restaurant.id)
+  end
+
   def self.update_or_create(auth)
    gc = GoogleCredential.find_by(uid: auth[:uid]) || GoogleCredential.new
    gc.attributes = {
@@ -28,5 +34,11 @@ class User < ApplicationRecord
    gc.save!
    user
   end
+
+  private
+
+    def set_default_role
+      roles.find_or_create_by(name: "chef")
+    end
 
 end
