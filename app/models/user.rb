@@ -5,6 +5,9 @@ class User < ApplicationRecord
   validates_with CredentialValidator
   has_one :app_credential, dependent: :destroy
   has_one :google_credential, dependent: :destroy
+  has_many :user_roles
+  has_many :roles, through: :user_roles
+  has_many :restaurants, through: :user_roles
 
   def self.update_or_create(auth)
    gc = GoogleCredential.find_by(uid: auth[:uid]) || GoogleCredential.new
