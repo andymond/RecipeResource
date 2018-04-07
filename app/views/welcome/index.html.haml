@@ -6,6 +6,7 @@
     .hidden.register-form
       = form_tag "/users" do
         = text_field_tag :restaurant, nil, placeholder: "restaurant name"
+        = text_field_tag :restaurant_zip, nil, placeholder: "restaurant zipcode"
         = text_field_tag :first_name, nil, placeholder: "first name"
         = text_field_tag :last_name, nil, placeholder: "last name"
         = email_field_tag :email, nil, placeholder: "your@email.com"

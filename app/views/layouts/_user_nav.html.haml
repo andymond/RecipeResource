@@ -1,2 +1,3 @@
 .user-nav
-  = link_to "Restaurant profile", restaurant_path(current_user.restaurants.first)
+  - unless current_user.restaurants.first.nil?
+    = link_to "Restaurant profile", restaurant_path(current_user.restaurants.first)
