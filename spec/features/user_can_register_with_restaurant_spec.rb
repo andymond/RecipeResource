@@ -23,14 +23,14 @@ describe "User registers with new restaurant" do
 
     click_on "Restaurant profile"
 
-    expect(current_path).to eq("/restaurants/jons-great-food-shack")
+    expect(current_path).to eq("/restaurants/jon-s-great-food-shack")
     expect(page).to have_content("Jon's Great Food Shack")
     expect(page).to have_content("249 Columbine St")
     expect(page).to have_content("Denver, CO 80206")
     expect(page).to have_content("Rating: 3.5")
     expect(page).to have_content("(720) 772-5020")
 
-    click_on "See all yelp reviews"
+    click_on "See All Yelp Reviews"
 
     expect(current_path).to include("https://www.yelp.com/biz")
   end
