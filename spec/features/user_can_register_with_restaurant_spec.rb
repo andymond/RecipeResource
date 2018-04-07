@@ -9,6 +9,7 @@ describe "User registers with new restaurant" do
 
     within(".register-form") do
       fill_in "restaurant", with: "Jon's Great Food Shack"
+      fill_in "restaurant_zip", with: "80206"
       fill_in "email", with: "test@testmail.com"
       fill_in "first_name", with: "Jon"
       fill_in "last_name", with: "Chefman"
