@@ -25,17 +25,20 @@ body {
   min-width: 400px;
 }
 
+.user-nav {
+  @include sub-header;
+  @include center-flex-row;
+  background-color: $background-gray;
+  height: 62px;
+}
+
 .welcome-options {
   @include sub-header;
+  @include center-flex-row;
   height: 62px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: $background-gray;
   .option {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include column-start;
     width: 32%;
   }
 }
