@@ -4,12 +4,18 @@ describe "User logs in with app credentials" do
   let(:user) { create(:user) }
 
   it "allows user to log in with correct credentials" do
+    restaurant = create(:restaurant)
+    role = Role.create(name: "chef")
+    user.user_roles.create(user_id: user.id, restaurant_id: restaurant.id, role_id: role.id)
+
     visit root_path
 
-    within(".login-form") do
-      fill_in "login_email", with: user.email
-      fill_in "login_password", with: user.app_credential.password
-      click_on "Log in"
+    VCR.use_cassette "Yelp Reviews" do
+      within(".login-form") do
+        fill_in "login_email", with: user.email
+        fill_in "login_password", with: user.app_credential.password
+        click_on "Log in"
+      end
     end
 
     expect(current_path).to eq(dashboard_index_path)
