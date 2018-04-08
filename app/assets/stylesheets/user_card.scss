@@ -12,7 +12,8 @@
   position: absolute;
   z-index: 1;
   width: 0px;
-  height: 700px;
+  height: 100vh;
+  min-height: 500px;
   background-color: $background-gray ;
   overflow-x: hidden;
   @include column-start;
