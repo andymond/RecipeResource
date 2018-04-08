@@ -15,7 +15,9 @@ describe "User registers with new restaurant" do
         fill_in "password_confirmation", with: "password"
         click_on "Register"
       end
+    end
 
+    VCR.use_cassette "Yelp Reviews" do
       expect(current_path).to eq(dashboard_index_path)
       expect(page).to have_content("Account created!")
 
