@@ -5,7 +5,7 @@ describe "User registers with new restaurant" do
     VCR.use_cassette "Yelp Search" do
       visit root_path
 
-      within(".register-form") do
+      within(".app-register") do
         fill_in "restaurant", with: "Departure"
         fill_in "restaurant_zip", with: "80206"
         fill_in "email", with: "test@testmail.com"
