@@ -4,7 +4,7 @@ describe "authentication" do
   it "allows user to register without google account" do
     visit root_path
     VCR.use_cassette "Yelp Search" do
-      within('.register-form') do
+      within('.app-register') do
         fill_in "restaurant", with: "Departure"
         fill_in "restaurant_zip", with: "80206"
         fill_in "first_name", with: "Test"
