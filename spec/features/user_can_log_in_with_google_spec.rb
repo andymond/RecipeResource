@@ -23,10 +23,24 @@ describe "Google Oauth" do
   it "allows user to register & login with google oauth2" do
     stub_omniauth
     visit root_path
-    click_link('google-oauth')
+
+    VCR.use_cassette "Yelp Search" do
+      within ".register-form" do
+        within ".google-register form" do
+          fill_in "restaurant", with: "Departure"
+          fill_in "restaurant_zip", with: "80206"
+          find('.google-oauth').click
+        end
+      end
+    end
+
+    VCR.use_cassette "Yelp Reviews" do
+      find(".open-card").click
+    end
 
     expect(current_path).to eq("/dashboard")
     expect(page).to have_content("Successfully registered with Google")
+    expect(page).to have_content("Departure")
     expect(page).to have_link("Logout")
   end
 end

@@ -3,7 +3,7 @@
 body {
   margin: 0;
   min-height: 760px;
-  background-image: url("paper_background.png");
+  background-image: image-url("paper_background.png");
   a {
     text-decoration: none;
     color: black;
@@ -19,30 +19,37 @@ body {
 }
 
 .welcome-header {
+  h2 { width: 187px; }
   @include header;
   height: 130px;
   min-width: 400px;
 }
 
+.user-nav {
+  @include sub-header;
+  @include center-flex-row;
+  background-color: $background-gray;
+  height: 62px;
+}
+
 .welcome-options {
   @include sub-header;
+  @include center-flex-row;
   height: 62px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: $background-gray;
   .option {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include column-start;
     width: 32%;
   }
 }
 
 .drop {
   position: absolute;
-  top: 220px;
+  top: 240px;
+  padding: 10px;
   background: $background-gray;
+  width: 230px;
+  border-radius: 3px;
   form {
     input {
       margin: 10px;
@@ -51,11 +58,11 @@ body {
     @include column-center;
   }
   @include column-center;
-  width: 500px;
 }
 .about-div{
   width: 700px;
   margin: 0 auto;
+  border-radius: 3px;
   .about-text {
     @include m-text;
     display: block;

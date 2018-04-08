@@ -20,8 +20,11 @@
 // });
 
 const about = document.querySelector('.about p')
+const aboutText = document.querySelector('.about-div .hidden')
 const register = document.querySelector('.register p')
+const registerForm = document.querySelector('.register .hidden')
 const login = document.querySelector('.login p')
+const loginField = document.querySelector('.login .hidden')
 var open = false;
 
 function openNav() {
@@ -44,17 +47,32 @@ function toggleNav() {
   }
 }
 
+function hide(element, cl) {
+  if(element.classList.contains(cl)) {
+    element.classList.toggle('hidden')
+    element.classList.toggle(cl)
+  }else {
+    false
+  }
+}
+
 about.addEventListener('click', function() {
-  const aboutText = document.querySelector('.about-div .hidden')
   aboutText.classList.toggle('about-text')
+  aboutText.classList.toggle('hidden')
+  hide(registerForm, 'drop')
+  hide(loginField, 'drop')
 })
 
 register.addEventListener('click', function() {
-  const registerForm = document.querySelector('.register .hidden')
   registerForm.classList.toggle('drop')
+  registerForm.classList.toggle('hidden')
+  hide(aboutText, 'about-text')
+  hide(loginField, 'drop')
 })
 
 login.addEventListener('click', function() {
-  const loginField = document.querySelector('.login .hidden')
   loginField.classList.toggle('drop')
+  loginField.classList.toggle('hidden')
+  hide(aboutText, 'about-text')
+  hide(registerForm, 'drop')
 })

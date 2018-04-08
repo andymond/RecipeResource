@@ -3,7 +3,7 @@
   <head>
     <title>recipe resource</title>
     <%= csrf_meta_tags %>
-    <linkr href="http://fonts.googleapis.com/css?family=Fjalla+One|Cantarell:400,400italic,700italic,700" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Fjalla+One|Cantarell:400,400italic,700italic,700" rel="stylesheet" type="text/css" />
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
@@ -11,10 +11,10 @@
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: name %>
     <% end %>
-    <% unless current_user.nil? %>
-      <%= render partial: "layouts/user_card" %>
-    <% end %>
+    <%= render partial: "layouts/user_card" unless current_user.nil?  %>
     <div id="main">
+      <%= render partial: "layouts/banner" %>
+      <%= render partial: "layouts/user_nav" unless current_user.nil? %>
       <%= yield %>
     </div>
     <%= javascript_include_tag 'application' %>

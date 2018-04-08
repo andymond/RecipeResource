@@ -1,0 +1,8 @@
+.restaurant-profile
+  = image_tag @restaurant.image_url;
+  = @restaurant.name
+  = @restaurant.address
+  Yelp Rating:
+  = @restaurant.rating
+  = @restaurant.phone_number
+  = link_to "See All Yelp Reviews", @restaurant.yelp_url
