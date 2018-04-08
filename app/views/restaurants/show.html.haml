@@ -1,6 +1,7 @@
 .restaurant-profile
   = @restaurant.name
   = @restaurant.address
+  Yelp Rating:
   = @restaurant.rating
   = @restaurant.phone_number
-  = link_to "See All Yelp Reviews", "#"
+  = link_to "See All Yelp Reviews", @restaurant.yelp_url
