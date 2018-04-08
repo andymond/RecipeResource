@@ -13,6 +13,8 @@ class User < ApplicationRecord
     set_default_role
     restaurant = Restaurant.create(name: attrs[:name], zipcode: attrs[:zipcode])
     user_roles.last.update(restaurant_id: restaurant.id)
+    search = YelpSearchService.new
+    search.update_restaurant(restaurant)
   end
 
   def self.update_or_create(auth)
