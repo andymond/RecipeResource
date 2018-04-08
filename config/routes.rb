@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :dashboard, only: [:index]
 
   resources :users, only: [:create]
+  resources :google_users, only: [:create]
   resources :sessions, only: [:create]
   resources :restaurants, only: [:show], param: :slug
 
