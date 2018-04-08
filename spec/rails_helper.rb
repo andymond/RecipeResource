@@ -8,11 +8,18 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'webmock/rspec'
+require 'vcr'
 
 def stub_yelp_search(filename, url)
   json_response = File.read("./spec/fixtures/#{filename}")
   stub_request(:get, url)
     .to_return(status: 200, body: "#{json_response}", headers: {Authorize: "Bearer #{ENV['YELP_API_KEY']}"})
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data('<YELP_KEY>') { ENV["YELP_API_KEY"]}
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!
