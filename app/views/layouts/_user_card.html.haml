@@ -4,17 +4,35 @@
   .user-name.mb1
     = [current_user.first_name, current_user.last_name].join(" ")
   .restaurant-name.mb1
-    testaurant-name
+    = current_user.restaurants.first.name
   = image_tag current_user.image_url, size: 200, class: "circle mb1"
   .yelp-reviews.m1
-    %h4.m1.center
-      Current Yelp Reviews
-    .review
-      from yelp: TEST REVIEW
-    .review
-      from yelp: TEST REVIEW
-    .review
-      from yelp: TEST REVIEW
+    %div.flex.items-center.justify-center
+      = image_tag "yelp_logo.png", size: "100x64"
+    = link_to current_reviews.url(0) do
+      .review
+        .restaurant-rating
+          = current_reviews.rating(0)
+        .review-text
+          = current_reviews.text(0)
+          %div= current_reviews.reviewer(0)
+          %div= current_reviews.time(0)
+    = link_to current_reviews.url(1) do
+      .review
+        .restaurant-rating
+          = current_reviews.rating(1)
+        .review-text
+          = current_reviews.text(1)
+          %div= current_reviews.reviewer(1)
+          %div= current_reviews.time(1)
+    = link_to current_reviews.url(2) do
+      .review
+        .restaurant-rating
+          = current_reviews.rating(2)
+        .review-text
+          = current_reviews.text(2)
+          %div= current_reviews.reviewer(2)
+          %div= current_reviews.time(2)
   .favorite-recipes.m1
     =link_to "#" do
       .favorite
