@@ -1,0 +1,263 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.yelp.com/v3/businesses/search?category=restaurants&location=80206&term=Departure
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Authorization:
+      - Bearer <YELP_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - application/json
+      Ratelimit-Dailylimit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4999'
+      Ratelimit-Resettime:
+      - '2018-04-09T00:00:00+00:00'
+      X-Proxied:
+      - 10-65-188-246-useast1bprod
+      Transfer-Encoding:
+      - chunked
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Sun, 08 Apr 2018 00:04:05 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-den19628-DEN
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+    body:
+      encoding: ASCII-8BIT
+      string: '{"businesses": [{"id": "2ciJkwAoMAksdct4ABVv8w", "alias": "departure-denver-3",
+        "name": "Departure", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/aX6PLadesELMaiqOetw7BQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/departure-denver-3?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 163, "categories": [{"alias": "asianfusion", "title": "Asian
+        Fusion"}, {"alias": "sushi", "title": "Sushi Bars"}], "rating": 3.5, "coordinates":
+        {"latitude": 39.7201771141022, "longitude": -104.95710862611}, "transactions":
+        ["restaurant_reservation"], "price": "$$$", "location": {"address1": "249
+        Columbine St", "address2": "", "address3": "", "city": "Denver", "zip_code":
+        "80206", "country": "US", "state": "CO", "display_address": ["249 Columbine
+        St", "Denver, CO 80206"]}, "phone": "+17207725020", "display_phone": "(720)
+        772-5020", "distance": 1235.8077220028335}, {"id": "6ThdJligZWCUCKjnbKgKFQ",
+        "alias": "quality-italian-denver", "name": "Quality Italian", "image_url":
+        "https://s3-media4.fl.yelpcdn.com/bphoto/XhZg1AzxonzQZmbCBbl2WA/o.jpg", "is_closed":
+        false, "url": "https://www.yelp.com/biz/quality-italian-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 177, "categories": [{"alias": "italian", "title": "Italian"},
+        {"alias": "tradamerican", "title": "American (Traditional)"}, {"alias": "cocktailbars",
+        "title": "Cocktail Bars"}], "rating": 4.0, "coordinates": {"latitude": 39.72038,
+        "longitude": -104.9574}, "transactions": [], "price": "$$$", "location": {"address1":
+        "241 Columbine St", "address2": "", "address3": null, "city": "Denver", "zip_code":
+        "80206", "country": "US", "state": "CO", "display_address": ["241 Columbine
+        St", "Denver, CO 80206"]}, "phone": "+13035328888", "display_phone": "(303)
+        532-8888", "distance": 1245.7317933270924}, {"id": "fdipNvAALQxjJWNz-USidQ",
+        "alias": "hillstone-restaurant-denver-2", "name": "Hillstone Restaurant",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/X9cRSduB-mh8X69JclkocQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/hillstone-restaurant-denver-2?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 286, "categories": [{"alias": "newamerican", "title": "American
+        (New)"}, {"alias": "sushi", "title": "Sushi Bars"}, {"alias": "jazzandblues",
+        "title": "Jazz & Blues"}], "rating": 4.0, "coordinates": {"latitude": 39.72124,
+        "longitude": -104.95858}, "transactions": [], "price": "$$", "location": {"address1":
+        "303 Josephine St", "address2": "", "address3": "", "city": "Denver", "zip_code":
+        "80206", "country": "US", "state": "CO", "display_address": ["303 Josephine
+        St", "Denver, CO 80206"]}, "phone": "+13033334688", "display_phone": "(303)
+        333-4688", "distance": 1200.2516315848227}, {"id": "EyhsdMauMOdM5po6HzkxHQ",
+        "alias": "bones-denver", "name": "Bones", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/7xj98pEWt2fMDzAmGbCfGg/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/bones-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 536, "categories": [{"alias": "asianfusion", "title": "Asian
+        Fusion"}, {"alias": "ramen", "title": "Ramen"}, {"alias": "noodles", "title":
+        "Noodles"}], "rating": 3.5, "coordinates": {"latitude": 39.72739, "longitude":
+        -104.9838}, "transactions": ["pickup"], "price": "$$", "location": {"address1":
+        "701 N Grant St", "address2": "", "address3": "", "city": "Denver", "zip_code":
+        "80203", "country": "US", "state": "CO", "display_address": ["701 N Grant
+        St", "Denver, CO 80203"]}, "phone": "+13038602929", "display_phone": "(303)
+        860-2929", "distance": 2687.9913264654206}, {"id": "9UYPzrky0DmOHFW-BkItIg",
+        "alias": "cholon-denver-3", "name": "ChoLon", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/OtKQRD66BOE49E6KYiR-ZA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/cholon-denver-3?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 811, "categories": [{"alias": "asianfusion", "title": "Asian
+        Fusion"}], "rating": 4.0, "coordinates": {"latitude": 39.7505617815134, "longitude":
+        -104.999534787109}, "transactions": ["pickup"], "price": "$$$", "location":
+        {"address1": "1555 Blake St", "address2": "", "address3": "", "city": "Denver",
+        "zip_code": "80202", "country": "US", "state": "CO", "display_address": ["1555
+        Blake St", "Denver, CO 80202"]}, "phone": "+13033535223", "display_phone":
+        "(303) 353-5223", "distance": 4569.927214385922}, {"id": "9t2n3LNT9jeMpocJgcYYAA",
+        "alias": "karma-asian-denver", "name": "Karma Asian", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/p7U86Z47LQ9fDihn_OIKNA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/karma-asian-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 359, "categories": [{"alias": "asianfusion", "title": "Asian
+        Fusion"}, {"alias": "salad", "title": "Salad"}, {"alias": "tapasmallplates",
+        "title": "Tapas/Small Plates"}], "rating": 4.0, "coordinates": {"latitude":
+        39.7161, "longitude": -104.9871299}, "transactions": ["delivery", "pickup"],
+        "price": "$$", "location": {"address1": "22 S Broadway", "address2": "", "address3":
+        "", "city": "Denver", "zip_code": "80209", "country": "US", "state": "CO",
+        "display_address": ["22 S Broadway", "Denver, CO 80209"]}, "phone": "+13038710167",
+        "display_phone": "(303) 871-0167", "distance": 3409.281864201454}, {"id":
+        "EA6usmUxhmR_w_I42ojf8w", "alias": "sweet-ginger-denver", "name": "Sweet Ginger",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/Dhs1sq2uvXBOCOptiEq_DQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/sweet-ginger-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 333, "categories": [{"alias": "chinese", "title": "Chinese"},
+        {"alias": "thai", "title": "Thai"}, {"alias": "sushi", "title": "Sushi Bars"}],
+        "rating": 4.0, "coordinates": {"latitude": 39.72076, "longitude": -104.95537},
+        "transactions": ["delivery", "pickup"], "price": "$$", "location": {"address1":
+        "2710 E 3rd Ave", "address2": "", "address3": "", "city": "Denver", "zip_code":
+        "80206", "country": "US", "state": "CO", "display_address": ["2710 E 3rd Ave",
+        "Denver, CO 80206"]}, "phone": "+13039967270", "display_phone": "(303) 996-7270",
+        "distance": 1153.1870946186693}, {"id": "HkuesYkfKvKQ4Wkek8WQjQ", "alias":
+        "bar-max-denver", "name": "Bar Max", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/0HSXy85Cm4mR24NlN-wy5A/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/bar-max-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 123, "categories": [{"alias": "wine_bars", "title": "Wine
+        Bars"}, {"alias": "cocktailbars", "title": "Cocktail Bars"}, {"alias": "whiskeybars",
+        "title": "Whiskey Bars"}], "rating": 4.5, "coordinates": {"latitude": 39.7400314,
+        "longitude": -104.9583975}, "transactions": [], "price": "$$", "location":
+        {"address1": "2412 E Colfax Ave", "address2": "", "address3": "", "city":
+        "Denver", "zip_code": "80206", "country": "US", "state": "CO", "display_address":
+        ["2412 E Colfax Ave", "Denver, CO 80206"]}, "phone": "+13033330003", "display_phone":
+        "(303) 333-0003", "distance": 1126.1836361860833}, {"id": "U49fKRH8s1j5gKRY7HMLDg",
+        "alias": "trader-joes-denver-10", "name": "Trader Joe''s", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/IXFCx2rAQwARrlKkyjjgeA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/trader-joes-denver-10?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 184, "categories": [{"alias": "grocery", "title": "Grocery"},
+        {"alias": "beer_and_wine", "title": "Beer, Wine & Spirits"}], "rating": 4.0,
+        "coordinates": {"latitude": 39.72853, "longitude": -104.94041}, "transactions":
+        [], "price": "$$", "location": {"address1": "750 N Colorado Blvd", "address2":
+        null, "address3": "", "city": "Denver", "zip_code": "80206", "country": "US",
+        "state": "CO", "display_address": ["750 N Colorado Blvd", "Denver, CO 80206"]},
+        "phone": "+13033211003", "display_phone": "(303) 321-1003", "distance": 1079.588563841315},
+        {"id": "GAT7Buk0BT_33GAqyZCbWA", "alias": "the-living-room-denver", "name":
+        "The Living Room", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/hl5aQseEvfGOX50x3Ayi1w/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/the-living-room-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 99, "categories": [{"alias": "wine_bars", "title": "Wine Bars"},
+        {"alias": "tapas", "title": "Tapas Bars"}], "rating": 3.5, "coordinates":
+        {"latitude": 39.7331238, "longitude": -104.9876202}, "transactions": ["restaurant_reservation"],
+        "price": "$$", "location": {"address1": "1055 Broadway", "address2": "", "address3":
+        "", "city": "Denver", "zip_code": "80203", "country": "US", "state": "CO",
+        "display_address": ["1055 Broadway", "Denver, CO 80203"]}, "phone": "+13033396636",
+        "display_phone": "(303) 339-6636", "distance": 3007.478640255288}, {"id":
+        "A9S4iGkRVNLWY8BSkRpDEA", "alias": "fruition-restaurant-denver", "name": "Fruition
+        Restaurant", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/rcUd0KmQCOC-K3_Zae66YQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/fruition-restaurant-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 692, "categories": [{"alias": "newamerican", "title": "American
+        (New)"}, {"alias": "bars", "title": "Bars"}], "rating": 4.5, "coordinates":
+        {"latitude": 39.725696, "longitude": -104.97133}, "transactions": [], "price":
+        "$$$", "location": {"address1": "1313 E 6th Ave", "address2": "", "address3":
+        "", "city": "Denver", "zip_code": "80218", "country": "US", "state": "CO",
+        "display_address": ["1313 E 6th Ave", "Denver, CO 80218"]}, "phone": "+13038311962",
+        "display_phone": "(303) 831-1962", "distance": 1707.8808328667303}, {"id":
+        "BwsrH7vf9Ir_-dvxUboVVA", "alias": "spices-cafe-denver", "name": "Spices Cafe",
+        "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/ycpf-uB0z_EEZe-_ueFlXw/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/spices-cafe-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 297, "categories": [{"alias": "tradamerican", "title": "American
+        (Traditional)"}, {"alias": "breakfast_brunch", "title": "Breakfast & Brunch"},
+        {"alias": "salad", "title": "Salad"}], "rating": 4.5, "coordinates": {"latitude":
+        39.740304, "longitude": -104.969427}, "transactions": [], "price": "$", "location":
+        {"address1": "1510 Humboldt St", "address2": "", "address3": "", "city": "Denver",
+        "zip_code": "80218", "country": "US", "state": "CO", "display_address": ["1510
+        Humboldt St", "Denver, CO 80218"]}, "phone": "+13035201708", "display_phone":
+        "(303) 520-1708", "distance": 1777.8498334891913}, {"id": "E4cxDqbDzf169CwPN9pRuw",
+        "alias": "retrograde-denver", "name": "Retrograde", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/RbZHiqszMgjup8FGdxGqwA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/retrograde-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 82, "categories": [{"alias": "cocktailbars", "title": "Cocktail
+        Bars"}, {"alias": "lounges", "title": "Lounges"}], "rating": 4.0, "coordinates":
+        {"latitude": 39.746148660779, "longitude": -104.980648979545}, "transactions":
+        [], "price": "$$", "location": {"address1": "530 E 19th Ave", "address2":
+        null, "address3": "", "city": "Denver", "zip_code": "80203", "country": "US",
+        "state": "CO", "display_address": ["530 E 19th Ave", "Denver, CO 80203"]},
+        "phone": "+17207727843", "display_phone": "(720) 772-7843", "distance": 2943.1531515937427},
+        {"id": "STjNbLa0mLMSGp7w5PHjXQ", "alias": "humboldt-farm-fish-wine-denver-2",
+        "name": "Humboldt Farm Fish Wine", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/oBhkXqxKCfw5PRcMRLjyqQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/humboldt-farm-fish-wine-denver-2?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 517, "categories": [{"alias": "newamerican", "title": "American
+        (New)"}, {"alias": "bars", "title": "Bars"}, {"alias": "seafood", "title":
+        "Seafood"}], "rating": 4.0, "coordinates": {"latitude": 39.7434886712108,
+        "longitude": -104.969402299734}, "transactions": ["restaurant_reservation"],
+        "price": "$$", "location": {"address1": "1700 Humboldt St", "address2": "",
+        "address3": "", "city": "Denver", "zip_code": "80218", "country": "US", "state":
+        "CO", "display_address": ["1700 Humboldt St", "Denver, CO 80218"]}, "phone":
+        "+13038131700", "display_phone": "(303) 813-1700", "distance": 2004.1313062000645},
+        {"id": "JJiugrBcZrNpX0ueUBuvrg", "alias": "cherry-cricket-denver", "name":
+        "Cherry Cricket", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/Exy1ooWg6fK49nLeRlJimw/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/cherry-cricket-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 2089, "categories": [{"alias": "burgers", "title": "Burgers"},
+        {"alias": "sportsbars", "title": "Sports Bars"}], "rating": 4.0, "coordinates":
+        {"latitude": 39.7196942925966, "longitude": -104.956333474869}, "transactions":
+        ["restaurant_reservation"], "price": "$$", "location": {"address1": "2641
+        E 2nd Ave", "address2": "", "address3": "", "city": "Denver", "zip_code":
+        "80206", "country": "US", "state": "CO", "display_address": ["2641 E 2nd Ave",
+        "Denver, CO 80206"]}, "phone": "+13033227666", "display_phone": "(303) 322-7666",
+        "distance": 1292.5244918570863}, {"id": "l4p-Rdp5wDVQmNUpS3BoSw", "alias":
+        "chuey-fus-denver", "name": "Chuey Fu''s", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/DhDzD9eNAIt6McET7pHkUQ/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/chuey-fus-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 70, "categories": [{"alias": "asianfusion", "title": "Asian
+        Fusion"}], "rating": 4.0, "coordinates": {"latitude": 39.7342984909538, "longitude":
+        -104.998938627541}, "transactions": ["pickup", "delivery"], "price": "$$",
+        "location": {"address1": "1131 Santa Fe Dr", "address2": "", "address3": null,
+        "city": "Denver", "zip_code": "80204", "country": "US", "state": "CO", "display_address":
+        ["1131 Santa Fe Dr", "Denver, CO 80204"]}, "phone": "+13034841681", "display_phone":
+        "(303) 484-1681", "distance": 3983.033723562864}, {"id": "pthFS_fEHAEzD4Ha2fYtnw",
+        "alias": "ingas-alpine-tavern-denver", "name": "Inga''s Alpine Tavern", "image_url":
+        "https://s3-media4.fl.yelpcdn.com/bphoto/Uw4cqAneSAf7fdSDCIQ_ZQ/o.jpg", "is_closed":
+        false, "url": "https://www.yelp.com/biz/ingas-alpine-tavern-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 91, "categories": [{"alias": "cocktailbars", "title": "Cocktail
+        Bars"}, {"alias": "lounges", "title": "Lounges"}, {"alias": "sandwiches",
+        "title": "Sandwiches"}], "rating": 4.0, "coordinates": {"latitude": 39.7084197998047,
+        "longitude": -104.92733001709}, "transactions": [], "price": "$$", "location":
+        {"address1": "5151 Leetsdale Dr", "address2": "", "address3": "", "city":
+        "Denver", "zip_code": "80246", "country": "US", "state": "CO", "display_address":
+        ["5151 Leetsdale Dr", "Denver, CO 80246"]}, "phone": "+17203896203", "display_phone":
+        "(720) 389-6203", "distance": 3294.0850437052814}, {"id": "tW39sjRfqxlm5krBSWzGCw",
+        "alias": "tag-restaurant-denver-3", "name": "TAG Restaurant", "image_url":
+        "https://s3-media2.fl.yelpcdn.com/bphoto/8AarXK0CW8pRpXB_425bjA/o.jpg", "is_closed":
+        false, "url": "https://www.yelp.com/biz/tag-restaurant-denver-3?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 825, "categories": [{"alias": "newamerican", "title": "American
+        (New)"}, {"alias": "asianfusion", "title": "Asian Fusion"}, {"alias": "venues",
+        "title": "Venues & Event Spaces"}], "rating": 4.0, "coordinates": {"latitude":
+        39.74814, "longitude": -104.99935}, "transactions": [], "price": "$$$", "location":
+        {"address1": "1441 Larimer St", "address2": "", "address3": "", "city": "Denver",
+        "zip_code": "80202", "country": "US", "state": "CO", "display_address": ["1441
+        Larimer St", "Denver, CO 80202"]}, "phone": "+13039969985", "display_phone":
+        "(303) 996-9985", "distance": 4425.818338667942}, {"id": "wHGrRbDPRdSvDSLWy6N5rw",
+        "alias": "avelina-denver", "name": "Avelina", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/yGNQHmd23WsN_5ZAAlyQuA/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/avelina-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 202, "categories": [{"alias": "cocktailbars", "title": "Cocktail
+        Bars"}, {"alias": "newamerican", "title": "American (New)"}, {"alias": "venues",
+        "title": "Venues & Event Spaces"}], "rating": 4.5, "coordinates": {"latitude":
+        39.75168, "longitude": -104.9989499}, "transactions": [], "price": "$$$",
+        "location": {"address1": "1550 17th St", "address2": "Ste 120 (On Wazee between
+        17th and 16th)", "address3": "", "city": "Denver", "zip_code": "80202", "country":
+        "US", "state": "CO", "display_address": ["1550 17th St", "Ste 120 (On Wazee
+        between 17th and 16th)", "Denver, CO 80202"]}, "phone": "+17209046711", "display_phone":
+        "(720) 904-6711", "distance": 4585.039708546259}, {"id": "KwmKhdWpcIzypdjAUNrc7w",
+        "alias": "mercantile-dining-and-provision-denver", "name": "Mercantile Dining
+        & Provision", "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/La36RRv14CheGs4x5WAR2Q/o.jpg",
+        "is_closed": false, "url": "https://www.yelp.com/biz/mercantile-dining-and-provision-denver?adjust_creative=_4gq9vYJtPZ12uTbllSjxg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=_4gq9vYJtPZ12uTbllSjxg",
+        "review_count": 731, "categories": [{"alias": "bars", "title": "Bars"}, {"alias":
+        "newamerican", "title": "American (New)"}], "rating": 4.5, "coordinates":
+        {"latitude": 39.7536149959513, "longitude": -104.999776429002}, "transactions":
+        [], "price": "$$", "location": {"address1": "1701 Wynkoop St", "address2":
+        "Ste 155", "address3": "", "city": "Denver", "zip_code": "80202", "country":
+        "US", "state": "CO", "display_address": ["1701 Wynkoop St", "Ste 155", "Denver,
+        CO 80202"]}, "phone": "+17204603733", "display_phone": "(720) 460-3733", "distance":
+        4758.760747914742}], "total": 45, "region": {"center": {"longitude": -104.95256423950195,
+        "latitude": 39.73095095525479}}}'
+    http_version: 
+  recorded_at: Sun, 08 Apr 2018 00:04:06 GMT
+recorded_with: VCR 4.0.0
