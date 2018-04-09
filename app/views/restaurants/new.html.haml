@@ -1,0 +1,6 @@
+= form_tag "/restaurants", class: "new-restaurant-form" do
+  = text_field_tag :restaurant, nil, placeholder: "restaurant name"
+  = text_field_tag :restaurant_zip, nil, placeholder: "restaurant zipcode"
+  = submit_tag "Register"
+
+  = link_to "Or request to join a restaurant", "#"
