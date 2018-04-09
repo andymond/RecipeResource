@@ -4,4 +4,7 @@ class RestaurantsController < ApplicationController
     @restaurant = current_user.restaurants.first
   end
 
+  def new
+  end
+
 end
