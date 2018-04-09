@@ -20,7 +20,7 @@ def stub_omniauth
 end
 
 describe "Google Oauth" do
-  it "allows user to register & login with google oauth2" do
+  it "allows user to register with google oauth2" do
     stub_omniauth
     visit root_path
 
