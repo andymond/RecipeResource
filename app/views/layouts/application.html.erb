@@ -11,7 +11,7 @@
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: name %>
     <% end %>
-    <%= render partial: "layouts/user_card" unless current_user.nil?  %>
+    <%= render partial: "layouts/user_card" unless current_user.nil? || current_user.restaurants.empty?  %>
     <div id="main">
       <%= render partial: "layouts/banner" %>
       <%= render partial: "layouts/user_nav" unless current_user.nil? %>
