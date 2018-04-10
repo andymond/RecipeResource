@@ -21,8 +21,6 @@
           = text_field_tag :restaurant_zip, nil, placeholder: "restaurant zipcode"
           = image_submit_tag('google_signin.png', class: 'google-oauth')
 
-      -# = link_to "/auth/google", id: 'google-oauth' do
-      -#   = image_tag "google_signin.png", size: "166x36"
   .login.option
     %p Log in
     .hidden.login-form
@@ -30,6 +28,8 @@
         = email_field_tag :login_email, nil, placeholder: "your@email.com"
         = password_field_tag :login_password, nil, placeholder: "password"
         = submit_tag "Log in"
+      = link_to "/auth/google", class: 'google-oauth' do
+        = image_tag "google_signin.png", size: "166x36"
 
 .about-div.mt2.mx-auto
   .hidden

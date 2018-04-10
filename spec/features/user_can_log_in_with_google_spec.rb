@@ -44,10 +44,13 @@ describe "Google Oauth" do
     expect(page).to have_link("Logout")
   end
 
-  it "allows user to register with google oauth2" do
+  it "allows registered user to login with google oauth2" do
+    user = create(:google_user)
+    restaurant = create(:restaurant)
+    role = Role.create(name: "chef")
+    user.user_roles.create(user_id: user.id, restaurant_id: restaurant.id, role_id: role.id)
     stub_omniauth
     visit root_path
-
     VCR.use_cassette "Yelp Search" do
       within ".login-form" do
         find('.google-oauth').click
@@ -59,7 +62,6 @@ describe "Google Oauth" do
     end
 
     expect(current_path).to eq("/dashboard")
-    expect(page).to have_content("Successfully registered with Google")
     expect(page).to have_content("Departure")
     expect(page).to have_link("Logout")
   end
