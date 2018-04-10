@@ -6,24 +6,26 @@ class ReviewsPresenter
   end
 
   def url(number)
-    reviews[number][:url]
+    reviews[number][:url] unless reviews.nil?
   end
 
   def text(number)
-    reviews[number][:text]
+    reviews[number][:text] unless reviews.nil?
   end
 
   def rating(number)
-    reviews[number][:rating]
+    reviews[number][:rating] unless reviews.nil?
   end
 
   def reviewer(number)
-    reviews[number][:user][:name]
+    reviews[number][:user][:name] unless reviews.nil?
   end
 
   def time(number)
-    t = Time.new(reviews[number][:time_created])
-    t.strftime("%b %d %Y")
+    unless reviews.nil?
+      t = Time.new(reviews[number][:time_created])
+      t.strftime("%b %d %Y")
+    end
   end
 
 

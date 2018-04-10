@@ -33,4 +33,30 @@ describe "User registers with new restaurant" do
 
     page.assert_selector(:css, 'a[href="https://www.yelp.com/biz/departure-denver-3"]')
   end
+
+  it "allows user to register restaurant with no yelp account" do
+    VCR.use_cassette "Yelp No Match" do
+      visit root_path
+
+      within(".app-register") do
+        fill_in "restaurant", with: "Testaurant12345"
+        fill_in "restaurant_zip", with: "85206"
+        fill_in "email", with: "test@testmail.com"
+        fill_in "first_name", with: "Jon"
+        fill_in "last_name", with: "Chefman"
+        fill_in "password", with: "password"
+        fill_in "password_confirmation", with: "password"
+        click_on "Register"
+      end
+    end
+
+    VCR.use_cassette "No Reviews" do
+      expect(current_path).to eq(dashboard_index_path)
+      expect(page).to have_content("Account created!")
+
+      click_on "Restaurant profile"
+
+      expect(current_path).to eq("/restaurants/testaurant12345")
+    end
+  end
 end
