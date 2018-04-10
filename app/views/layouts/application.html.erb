@@ -14,7 +14,15 @@
     <%= render partial: "layouts/user_card" unless current_user.nil? || current_user.restaurants.empty?  %>
     <div id="main">
       <%= render partial: "layouts/banner" %>
-      <%= render partial: "layouts/user_nav" unless current_user.nil? %>
+      <% unless current_user.nil? %>
+        <% if current_user.is_site_admin? %>
+        <%= render partial: "layouts/admin_nav" %>
+        <% elsif current_user.is_chef? %>
+        <%= render partial: "layouts/chef_nav" %>
+        <% elsif current_user.is_cook? %>
+        <%= render partial: "layouts/cook_nav" %>
+        <% end %>
+      <% end %>
       <%= yield %>
     </div>
     <%= javascript_include_tag 'application' %>
