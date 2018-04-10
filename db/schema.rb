@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408004433) do
+ActiveRecord::Schema.define(version: 20180410003048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,41 @@ ActiveRecord::Schema.define(version: 20180408004433) do
     t.index ["user_id"], name: "index_google_credentials_on_user_id"
   end
 
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instructions", force: :cascade do |t|
+    t.text "step"
+    t.bigint "recipe_id"
+    t.index ["recipe_id"], name: "index_instructions_on_recipe_id"
+  end
+
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.bigint "recipe_id"
+    t.bigint "ingredient_id"
+    t.decimal "quantity"
+    t.string "unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
+    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "station"
+    t.string "name"
+    t.bigint "restaurant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_recipes_on_restaurant_id"
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.string "yid"
-    t.string "image_url"
+    t.string "image_url", default: "cutlery.svg"
     t.string "rating"
     t.string "address"
     t.string "phone_number"
@@ -73,6 +105,10 @@ ActiveRecord::Schema.define(version: 20180408004433) do
 
   add_foreign_key "app_credentials", "users"
   add_foreign_key "google_credentials", "users"
+  add_foreign_key "instructions", "recipes"
+  add_foreign_key "recipe_ingredients", "ingredients"
+  add_foreign_key "recipe_ingredients", "recipes"
+  add_foreign_key "recipes", "restaurants"
   add_foreign_key "user_roles", "restaurants"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"

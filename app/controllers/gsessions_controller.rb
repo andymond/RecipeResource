@@ -2,7 +2,11 @@ class GsessionsController < ApplicationController
 
   def create
     user       = User.update_or_create(request.env["omniauth.auth"])
-    if user.set_restaurant(name: session[:restaurant_name], zipcode: session[:restaurant_zip])
+    if session[:restaurant_name].nil?
+      session[:user_id] = user.id
+      flash[:notice] = "Welcome, #{user}"
+      redirect_to dashboard_index_path
+    elsif user.set_restaurant(name: session[:restaurant_name], zipcode: session[:restaurant_zip])
       session[:user_id] = user.id
       flash[:notice] = "Successfully registered with Google"
       redirect_to dashboard_index_path
