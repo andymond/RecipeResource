@@ -20,7 +20,7 @@ describe "User registers with new restaurant" do
     VCR.use_cassette "Yelp Reviews" do
       expect(current_path).to eq(dashboard_index_path)
       expect(page).to have_content("Account created!")
-
+      
       click_on "Restaurant profile"
 
       expect(current_path).to eq("/restaurants/departure")
