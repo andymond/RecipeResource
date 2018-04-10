@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :google_users, only: [:create]
   resources :sessions, only: [:create]
   resources :restaurants, only: [:show, :new, :create], param: :slug
+  namespace :chef do
+    resources :restaurants, only: [:edit, :update], param: :slug
+  end
 
   get "/auth/google", as: :google_login
   get 'auth/:provider/callback',  to: 'gsessions#create'
