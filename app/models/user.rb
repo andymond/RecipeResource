@@ -26,7 +26,7 @@ class User < ApplicationRecord
          oauth_expires_at: auth[:credentials][:expires_at]
        }
    user = gc.update_or_create({
-         email: auth[:info][:email], 
+         email: auth[:info][:email],
          first_name: auth[:info][:first_name],
          last_name: auth[:info][:last_name],
          image_url: auth[:info][:image]
