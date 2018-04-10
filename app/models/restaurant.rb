@@ -6,6 +6,10 @@ class Restaurant < ApplicationRecord
   validates_uniqueness_of :name, scope: [:zipcode]
   before_save :generate_slug, if: :name_changed?
 
+  def to_param
+    slug
+  end
+
   private
 
     def generate_slug
