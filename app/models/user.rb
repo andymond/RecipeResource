@@ -9,6 +9,18 @@ class User < ApplicationRecord
   has_many :roles, through: :user_roles
   has_many :restaurants, through: :user_roles
 
+  def is_site_admin?
+    roles.exists?("site admin")
+  end
+
+  def is_chef?
+    roles.exists?(name: "chef")
+  end
+
+  def is_cook?
+    roles.exists?(name: "cook")
+  end
+
   def set_restaurant(attrs)
     set_default_role
     search = YelpSearchService.new
