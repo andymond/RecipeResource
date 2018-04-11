@@ -1,0 +1,3 @@
+.user-nav
+    = link_to "Restaurant profile", restaurant_path(current_user.restaurants.first.slug)
+    = link_to "Home", dashboard_index_path
