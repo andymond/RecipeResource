@@ -1,0 +1,3 @@
+.stations_nav
+  - current_stations.each do |station|
+    = link_to station, restaurant_recipes_path(current_restaurant, station: station)
