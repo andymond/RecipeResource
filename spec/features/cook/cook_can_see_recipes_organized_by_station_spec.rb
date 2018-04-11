@@ -1,9 +1,10 @@
 require "rails_helper"
 
 describe "As a cook" do
+  let(:user)       { create(:cook ) }
+  let(:restaurant) { user.restaurants.first }
+
   it "displays a list of all recipes on dashboard" do
-    user = create(:cook)
-    restaurant = user.restaurants.first
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     restaurant.recipes.create(name: "squash ravioli", station: "pasta")
     restaurant.recipes.create(name: "steak", station: "saute")
@@ -22,8 +23,6 @@ describe "As a cook" do
   end
 
   it "allows user to filter recipes by station" do
-    user = create(:cook)
-    restaurant = user.restaurants.first
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     restaurant.recipes.create(name: "squash ravioli", station: "pasta")
     restaurant.recipes.create(name: "steak", station: "saute")
