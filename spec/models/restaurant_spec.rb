@@ -15,7 +15,7 @@ describe Restaurant do
     it "#stations" do
       restaurant = create(:restaurant)
       restaurant.recipes.create(name: "soup", station: "garde a mange")
-      restaurant.recipes.create(name: "soup", station: "garde a mange")
+      restaurant.recipes.create(name: "salad", station: "garde a mange")
       restaurant.recipes.create(name: "pork loin", station: "saute")
 
       expect(restaurant.stations).to eq(["garde a mange", "saute"])
