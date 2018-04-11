@@ -1,5 +1,5 @@
 %div
   - @recipes.each do |recipe|
-    = link_to "#" do
+    = link_to restaurant_recipe_path(current_restaurant, recipe) do
       .recipe
         = recipe.name

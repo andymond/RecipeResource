@@ -1,0 +1,16 @@
+.mise-en-place
+  %table.recipe-ingredients
+    - @recipe.ingredients_with_quantities_and_units.each do |set|
+      %tr.ingredient-set
+        %td.ingredient
+          = set[0]
+        %td.quantity
+          = set[1]
+        %td.unit
+          = set[2]
+
+
+  %ol.instructions
+    - @recipe.instructions.each do |step|
+      %li
+        = step
