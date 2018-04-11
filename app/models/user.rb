@@ -22,9 +22,14 @@ class User < ApplicationRecord
   end
 
   def set_restaurant(attrs)
-    set_default_role
+    set_role("chef")
     search = YelpSearchService.new
     restaurant = search.update_restaurant(attrs)
+    user_roles.last.update(restaurant_id: restaurant.id)
+  end
+
+  def cooks_at(restaurant)
+    set_role("cook")
     user_roles.last.update(restaurant_id: restaurant.id)
   end
 
@@ -50,8 +55,9 @@ class User < ApplicationRecord
 
   private
 
-    def set_default_role
-      roles.find_or_create_by(name: "chef")
+    def set_role(role)
+      r = Role.find_or_create_by(name: role)
+      user_roles.find_or_create_by(role_id: r.id, user_id: self.id)
     end
 
 end
