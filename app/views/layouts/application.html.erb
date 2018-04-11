@@ -16,11 +16,14 @@
       <%= render partial: "layouts/banner" %>
       <% unless current_user.nil? %>
         <% if current_user.is_site_admin? %>
-        <%= render partial: "layouts/admin_nav" %>
+          <%= render partial: "layouts/admin_nav" %>
         <% elsif current_user.is_chef? %>
-        <%= render partial: "layouts/chef_nav" %>
+          <%= render partial: "layouts/chef_nav" %>
         <% elsif current_user.is_cook? %>
-        <%= render partial: "layouts/cook_nav" %>
+          <%= render partial: "layouts/cook_nav" %>
+        <% end %>
+        <% unless current_restaurant.nil? %>
+          <%= render partial: "layouts/stations" %>
         <% end %>
       <% end %>
       <%= yield %>
