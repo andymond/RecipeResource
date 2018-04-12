@@ -26,6 +26,8 @@ const registerForm = document.querySelector('.register .hidden')
 const login = document.querySelector('.login p')
 const loginField = document.querySelector('.login .hidden')
 var open = false;
+var ingredient_counter = 0;
+var instruction_counter = 0;
 
 function openNav() {
     document.getElementById("userCard").style.width = "300px";
@@ -76,3 +78,28 @@ login.addEventListener('click', function() {
   hide(aboutText, 'about-text')
   hide(registerForm, 'drop')
 })
+
+function addIngredient(divName){
+  var newdiv = document.createElement('div');
+  newdiv.id = "ingSet" + (ingredient_counter + 1)
+  newdiv.innerHTML = "<input type='text' placeholder='ingredient name' name='ingredients[" + (ingredient_counter + 1) + "]' id=ingredient" + (ingredient_counter + 1) + " required>";
+  newdiv.innerHTML += "<input type='number' placeholder='qty' step='0.1' name='qty[" + (ingredient_counter + 1) + "]' class='qty' id=quantity" + (ingredient_counter + 1) + ">";
+  newdiv.innerHTML += "<input type='text' placeholder='unit' name='unit[" + (ingredient_counter + 1) + "]' class='unit' id=unit" + (ingredient_counter + 1) + ">";
+  newdiv.innerHTML += "<button type='button' onClick='removeField(\"ingSet" + (ingredient_counter + 1) + "\");' class='rounded' id=remove-ingredient'" + (ingredient_counter + 1) + ">Remove</button>"
+  document.getElementById(divName).appendChild(newdiv);
+  ingredient_counter++;
+}
+
+function addInstruction(divName){
+  var newdiv = document.createElement('div');
+  newdiv.id = "instSet" + (instruction_counter + 1)
+  newdiv.innerHTML = "<input type='text' placeholder='step " + (instruction_counter + 1) + "' name='instructions[" + (instruction_counter + 1) + "]' class='instruction' id=instruction" + (instruction_counter + 1) + " required>";
+  newdiv.innerHTML += "<button type='button' onClick='removeField(\"instSet" + (instruction_counter + 1) + "\");' class='rounded' id='remove-ingredient'" + (instruction_counter + 1) + ">Remove</button>"
+  document.getElementById(divName).appendChild(newdiv);
+  instruction_counter++;
+}
+
+function removeField(divName){
+  document.getElementById(divName).remove();
+  instruction_counter--;
+}
