@@ -20,6 +20,13 @@ VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/cassettes"
   config.hook_into :webmock
   config.filter_sensitive_data('<YELP_KEY>') { ENV["YELP_API_KEY"]}
+  config.ignore_request do |request|
+    request.uri.include?("__identify__")
+  end
+end
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :firefox)
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!
