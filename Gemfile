@@ -48,6 +48,8 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'geckodriver-helper'
+  gem 'selenium-webdriver'
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'database_cleaner'
