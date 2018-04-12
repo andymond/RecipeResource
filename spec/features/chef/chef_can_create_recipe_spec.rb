@@ -12,25 +12,26 @@ describe "As a user with role 'chef'" do
     VCR.use_cassette "No Reviews" do
       click_on "New Recipe"
     end
+
     expect(current_path).to eq(new_chef_restaurant_recipe_path(user.restaurants.first))
 
     fill_in "recipe_name", with: "Aromatic Fatty Dressing"
     fill_in "recipe_station", with: "garde a mange"
 
     click_on "Add Ingredient"
-    fill_in "ingredient1", with: "coconut milk"
+    fill_in "ingredient1", with: "coconut milk", wait: 20
     click_on "Add Ingredient"
     fill_in "ingredient2", with: "lemongrass"
     click_on "Add Ingredient"
     fill_in "ingredient3", with: "fish sauce"
 
-    click_on "Add Instruction"
+    click_on "Add Step"
     fill_in "instruction1", with: "slice lemongrass finely"
-    click_on "Add Instruction"
+    click_on "Add Step"
     fill_in "instruction2", with: "Mix ingredents and season with lime to taste"
-
-    click_on "Recipe Complete"
-
+    VCR.use_cassette "No Reviews" do
+      click_on "Recipe Complete"
+    end
     expect(current_path).to eq(restaurant_recipe_path(user.restaurants.first, user.restaurants.first.recipes.last))
     expect(page).to have_content("Aromatic Fatty Dressing")
     expect(page).to have_content("coconut milk")
