@@ -8,6 +8,7 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'webmock/rspec'
+require 'selenium-webdriver'
 require 'vcr'
 
 def stub_yelp_search(filename, url)
@@ -20,7 +21,20 @@ VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/cassettes"
   config.hook_into :webmock
   config.filter_sensitive_data('<YELP_KEY>') { ENV["YELP_API_KEY"]}
+  config.ignore_request do |request|
+    request.uri.include?("__identify__")
+  end
+  config.ignore_request do |request|
+    request.uri.include?("session")
+  end
 end
+
+Capybara.register_driver :firefox do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :firefox)
+end
+
+Capybara.javascript_driver = :firefox
+Capybara.asset_host = "http://localhost:3000"
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
