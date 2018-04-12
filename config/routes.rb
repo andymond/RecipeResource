@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resources :recipes, only: [:index, :show], param: :slug
   end
   namespace :chef do
-    resources :restaurants, only: [:edit, :update], param: :slug
+    resources :restaurants, only: [:edit, :update], param: :slug do
+      resources :recipes, only: [:new, :create]
+    end
   end
 
   get "/auth/google", as: :google_login
