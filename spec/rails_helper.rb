@@ -23,6 +23,9 @@ VCR.configure do |config|
   config.ignore_request do |request|
     request.uri.include?("__identify__")
   end
+  config.ignore_request do |request|
+    request.uri.include?("session")
+  end
 end
 
 Capybara.register_driver :selenium do |app|
