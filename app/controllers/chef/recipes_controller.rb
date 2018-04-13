@@ -15,6 +15,10 @@ class Chef::RecipesController < ApplicationController
     end
   end
 
+  def edit
+    @recipe = RecipePresenter.new(params[:slug])
+  end
+
   private
 
     def recipe_details

@@ -14,3 +14,6 @@
     - @recipe.instructions.each do |step|
       %li
         = step
+
+  - if "chef plaform_admin".include?(current_role)
+    = link_to "Edit Recipe", edit_chef_restaurant_recipe_path(current_restaurant, slug: @recipe.slug)

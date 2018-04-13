@@ -24,6 +24,10 @@ class RecipePresenter
     recipe.instructions.map { |i| i.step }
   end
 
+  def slug
+    recipe.slug
+  end
+
   private
     attr_reader :recipe
 

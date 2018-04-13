@@ -25,12 +25,15 @@ describe "As a chef" do
     expect(current_path).to eq(edit_chef_restaurant_recipe_path(user.restaurants.first, recipe))
 
     find('.ingredient2').click
-    fill_in "beer"
+    fill_in '.ingredient2', with: "beer"
     click_on "Add Ingredient"
-    fill_in "kix"
+    fill_in '.ingredient3', with: "kix"
     find('.instruction2').click
     fill_in "mix fish, kix and beer together"
-    click_on"Update Recipe"
+
+    VCR.use_cassette "No Reviews" do
+      click_on"Update Recipe"
+    end
 
     expect(current_path).to eq(restaurant_recipe_path(user.restaurants.first, recipe))
     expect(page).to have_content("mix fish, kix and beer together")
