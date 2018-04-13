@@ -103,3 +103,27 @@ function removeField(divName){
   document.getElementById(divName).remove();
   instruction_counter--;
 }
+
+function updateRecipe(){
+  console.log('boo  ')
+  const recipeIngredients = document.querySelector('.recipe-ingredients')
+  const ingredients       = [...recipeIngredients.querySelectorAll('tr')]
+  const recipe = ingredients.map(row => {
+    let rowData = row.querySelectorAll('td')
+    return {
+      ingredient: rowData[0].innerText,
+      qty: rowData[1].innerText,
+      unit: rowData[2].innerText
+    }
+  })
+  putUpdateRecipe(recipe, resSlug, recSlug)
+}
+
+function async putUpdateRecipe(recipe, resSlug, recSlug) {
+  const url = `/restaurants/${resSlug}/recipes/${recSlug}/`
+  const response = await fetch(url, {
+    method: "PUT",
+    headers: {Content-Type: "application/json"},
+    body: JSON.stringify(recipe)
+  })
+}

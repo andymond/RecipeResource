@@ -1,0 +1,17 @@
+.mise-en-place
+  %table.recipe-ingredients
+    - @recipe.ingredients_with_quantities_and_units.each_with_index do |set, i|
+      %tr.ingredient-set
+        %td.ingredient{id: ("ingredient" + (i + 1).to_s), contenteditable: true}
+          = set[0]
+        %td.qty{id: ("qty" + (i + 1).to_s)}
+          = set[1]
+        %td.unit{id: ("unit" + (i + 1).to_s)}
+          = set[2]
+
+  %ol.instructions
+    - @recipe.instructions.each do |step|
+      %li
+        = step
+
+  = submit_tag "Update Recipe", class: "update-recipe", onClick: "updateRecipe()"
