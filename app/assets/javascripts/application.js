@@ -109,6 +109,8 @@ function removeField(divName){
 
 function updateRecipe(event){
   const {recslug, resslug} = {...event.target.dataset}
+  const recipeName         = document.querySelector('.recipe-header').innerText
+  const recipeStation      = document.querySelector('.recipe-station').innerText
   const recipeIngredients  = document.querySelector('.recipe-ingredients')
   const ingredients        = [...recipeIngredients.querySelectorAll('.ingredient-row')]
   const recipeInstructions = document.querySelector('.instructions')
@@ -121,9 +123,8 @@ function updateRecipe(event){
       unit: rowData[2].innerText || rowData[2].value
     }
   })
-  debugger
   const instructionList = instructions.map(row => row.innerText || row.value)
-  putUpdateRecipe({ingredientList, instructionList}, resslug, recslug)
+  putUpdateRecipe({recipeName, recipeStation, ingredientList, instructionList}, resslug, recslug)
 }
 
 function putUpdateRecipe(recipe, resSlug, recSlug) {
