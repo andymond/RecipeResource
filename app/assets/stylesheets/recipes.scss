@@ -8,33 +8,74 @@
   min-height: 90vh;
 }
 
+.recipe-header {
+  @include sub-header;
+}
+
+.recipe-ingredients, .edit-instructions {
+  table {
+    border-collapse: separate;
+    border-spacing: 10px;
+  }
+  .instruction {
+    min-width: 500px;
+  }
+  .edit-ingredient {
+    min-width: 209px;
+  }
+}
+
+.ingredient-data, .instruction {
+  background-color: $background-ivory;
+  border-width: 1px;
+  border-style: inset;
+  padding: 0.5em;
+  font: 400 20px system-ui;
+}
+
+.ingredient-data {
+  margin: auto 5px;
+}
+
+.instruction {
+  margin: auto 10px;
+}
+
+.ingredient-row {
+  margin: auto 5px;
+}
+
 .recipe-info {
   @include center-flex-row;
   input { width: 250px; }
 }
 
-.ingredients, .instructions {
+.ingredients {
   @include column-center;
   div {
     width: 100%;
     min-width: 500px;
     margin: 1px;
-    .qty { width: 50px; }
-    .unit { width: 50px; }
-    .instruction {
-      width: 300px;
-    }
   }
+}
+
+.specific-ingredient {
+  min-width: 209px;
+}
+
+.qty, .unit {
+  width: 50px;
 }
 
 button, .finish-recipe {
   @include sm-text;
   background-color: $background-ivory;
+  margin: auto;
 }
 
-
 input {
+  background-color: $background-ivory;
   padding: 0.5em;
-  margin: 10px;
+  margin: 5px;
   font: 400 20px system-ui;
 }
