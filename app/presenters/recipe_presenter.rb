@@ -4,6 +4,10 @@ class RecipePresenter
     @recipe = Recipe.find_by(slug: slug)
   end
 
+  def name
+    recipe.name
+  end
+
   def ingredients
     recipe.ingredients.map { |i| i.name }
   end
