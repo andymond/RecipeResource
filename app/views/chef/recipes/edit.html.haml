@@ -1,5 +1,9 @@
-%h1.h3.recipe-header{contenteditable: true}
-  = @recipe.name
+%h4.flex.justify-center
+  .inline.h4.recipe-station{contenteditable: true}
+    = @recipe.station
+%h1.flex.justify-center
+  .inline.h3.recipe-header{contenteditable: true}
+    = @recipe.name
 
 .recipe-ingredients
   %table
@@ -17,7 +21,7 @@
   #ingredient-field
   %button.add_ingredient.px1.m1.rounded{type: "button", onClick: "addIngredient('ingredient-field')"}
     Add Ingredient
-.edit-instructions
+.instructions-container
   %table.instructions
     - @recipe.instructions.each_with_index do |step, i|
       %tr{id: ("instruction-row" + (i + 1).to_s)}

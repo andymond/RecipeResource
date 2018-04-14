@@ -8,11 +8,14 @@
   min-height: 90vh;
 }
 
-.recipe-header {
+.recipe-header, .recipe-station {
   @include sub-header;
+  @include column-center;
 }
 
-.recipe-ingredients, .edit-instructions {
+.recipe-ingredients, .instructions-container {
+  @include column-center;
+  @include text;
   table {
     border-collapse: separate;
     border-spacing: 10px;
@@ -31,18 +34,6 @@
   border-style: inset;
   padding: 0.5em;
   font: 400 20px system-ui;
-}
-
-.ingredient-data {
-  margin: auto 5px;
-}
-
-.instruction {
-  margin: auto 10px;
-}
-
-.ingredient-row {
-  margin: auto 5px;
 }
 
 .recipe-info {
@@ -65,6 +56,14 @@
 
 .qty, .unit {
   width: 50px;
+}
+
+.update-recipe {
+  width: 233px;
+  height: 60px;
+  display: block;
+  margin: 20px auto;
+  font-size: 20px;
 }
 
 button, .finish-recipe {
