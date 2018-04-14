@@ -8,6 +8,10 @@ class RecipePresenter
     recipe.name
   end
 
+  def station
+    recipe.station
+  end
+
   def ingredients
     recipe.ingredients.map { |i| i.name }
   end
