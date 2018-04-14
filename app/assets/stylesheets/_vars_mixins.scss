@@ -1,4 +1,5 @@
 $background-gray: #b4b9c15A;
+$dark-background-gray: #b4b9c120;
 $background-ivory: #fdfff05A;
 
 @mixin header {
@@ -16,7 +17,6 @@ $background-ivory: #fdfff05A;
     line-height: 23px;
     text-transform: uppercase;
     letter-spacing: -1px;
-    margin: 0 0 23px 0;
 }
 
 @mixin text {
@@ -24,6 +24,12 @@ $background-ivory: #fdfff05A;
   font-weight: lighter;
   line-height: 25px;
   margin: 0 0 23px 0;
+}
+
+@mixin text-no-margin {
+  font-family: 'Cantarell', sans-serif;
+  font-weight: lighter;
+  line-height: 25px;
 }
 
 @mixin sm-text {
@@ -48,6 +54,12 @@ $background-ivory: #fdfff05A;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@mixin column-right {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
 @mixin center-flex-row {

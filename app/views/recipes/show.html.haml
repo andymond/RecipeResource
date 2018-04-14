@@ -1,5 +1,11 @@
-.mise-en-place
-  %table.recipe-ingredients
+%h4.h4.recipe-station
+  = @recipe.station
+%h1.h3.recipe-header
+
+  = @recipe.name
+
+.recipe-ingredients.m2
+  %table.m3
     - @recipe.ingredients_with_quantities_and_units.each do |set|
       %tr.ingredient-set
         %td.ingredient
@@ -9,11 +15,13 @@
         %td.unit
           = set[2]
 
-
-  %ol.instructions
+.instructions-container.m2
+  %ol
     - @recipe.instructions.each do |step|
       %li
         = step
 
-  - if "chef plaform_admin".include?(current_role)
-    = link_to "Edit Recipe", edit_chef_restaurant_recipe_path(current_restaurant, slug: @recipe.slug)
+- if "chef plaform_admin".include?(current_role)
+  .recipe-options.flex.justify-center
+    = link_to edit_chef_restaurant_recipe_path(current_restaurant, slug: @recipe.slug) do
+      = button_tag "Edit Recipe", class: "rounded", type: "button"
