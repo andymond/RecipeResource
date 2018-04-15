@@ -8,6 +8,9 @@
   = image_tag current_user.image_url, size: 200, class: "circle mb1"
   .yelp-reviews.m1
     %div.flex.items-center.justify-center
+    - if current_reviews.reviews.nil?
+      No Yelp Reviews Yet!
+    - else
       = image_tag "yelp_logo.png", size: "100x64"
     = link_to current_reviews.url(0) do
       .review
