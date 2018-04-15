@@ -1,11 +1,11 @@
 class RecipeUpdater
 
-  def initialize(attrs)
+  def initialize(attrs, slug)
     @name         = attrs[:recipeName].strip
     @station      = attrs[:recipeStation].strip
     @ingredients  = attrs[:ingredientList].map
     @instructions = attrs[:instructionList].map
-    @recipe       = Recipe.find_by("lower(name) = ?", @name.downcase)
+    @recipe       = Recipe.find_by(slug: slug)
   end
 
   def update_recipe
