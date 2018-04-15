@@ -1,4 +1,4 @@
-class RecipeCoordinator
+class RecipeCreator
 
   def initialize(restaurant, attrs)
     @recipe       = restaurant.recipes.create(name: attrs[:name], station: attrs[:station])
@@ -20,9 +20,9 @@ class RecipeCoordinator
   end
 
   def add_ingredients
-    ingredients_by_row.each do |num, details|
-      ingredient = Ingredient.find_or_create_by(name: details[0])
-      RecipeIngredient.create(recipe_id: recipe.id, ingredient_id: ingredient.id, quantity: details[1], unit: details[2])
+    ingredients_by_row.each do |num, data|
+      ingredient = Ingredient.find_or_create_by(name: data[0])
+      RecipeIngredient.create(recipe_id: recipe.id, ingredient_id: ingredient.id, quantity: data[1], unit: data[2])
     end
   end
 

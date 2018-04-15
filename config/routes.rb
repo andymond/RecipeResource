@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   namespace :chef do
     resources :restaurants, only: [:edit, :update], param: :slug do
-      resources :recipes, only: [:new, :create]
+      resources :recipes, only: [:new, :create, :edit, :update, :destroy], param: :slug
     end
   end
 

@@ -12,6 +12,7 @@ body {
 
 #main {
   transition: margin-left 0.5s;
+  margin-bottom: 35px;
 }
 
 .hidden {
@@ -30,6 +31,33 @@ body {
   @include center-flex-row;
   background-color: $background-gray;
   height: 62px;
+  a {
+    padding: 5px;
+    margin: 0 15px;
+    border-radius: 3px;
+    &:hover { color: white; }
+  }
+}
+
+.stations-nav {
+  @include sub-header;
+  @include center-flex-row;
+  padding: 3px;
+  height: 50px;
+  background-color: $dark-background-gray;
+  @include text-no-margin;
+  overflow-x: scroll;
+  a {
+    background-color: #fffef45f;
+    box-shadow: 0px 2px 5px #8888885f;
+    padding: 5px;
+    margin: 0 15px;
+    border-radius: 3px;
+    &:hover {
+      transform: scale(1.1, 1.1);
+      transition: 0.1s;
+     }
+  }
 }
 
 .welcome-options {

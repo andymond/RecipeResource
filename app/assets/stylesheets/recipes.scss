@@ -8,33 +8,111 @@
   min-height: 90vh;
 }
 
+.recipe-header, .recipe-station {
+  @include sub-header;
+  @include column-center;
+}
+
+.recipe-ingredients, .instructions-container {
+  @include column-center;
+  @include text;
+  table {
+    border-collapse: separate;
+    border-spacing: 10px;
+  }
+  .instruction {
+    min-width: 500px;
+  }
+  .edit-ingredient {
+    min-width: 209px;
+  }
+}
+
+.ingredient-data, .instruction {
+  background-color: $background-ivory;
+  border-width: 1px;
+  border-style: inset;
+  padding: 0.5em;
+  font: 400 20px system-ui;
+}
+
 .recipe-info {
   @include center-flex-row;
   input { width: 250px; }
 }
 
-.ingredients, .instructions {
+.ingredients {
   @include column-center;
   div {
     width: 100%;
     min-width: 500px;
     margin: 1px;
-    .qty { width: 50px; }
-    .unit { width: 50px; }
-    .instruction {
-      width: 300px;
-    }
+  }
+}
+
+.specific-ingredient {
+  min-width: 209px;
+}
+
+.qty, .unit {
+  min-width: 50px;
+}
+
+.update-recipe {
+  width: 233px;
+  height: 60px;
+  display: block;
+  margin: 20px auto;
+  font-size: 20px;
+}
+
+.delete-recipe {
+  display: flex;
+  justify-content: center;
+  width: 168px;
+  height: 43px;
+  display: block;
+  margin: 5px auto;
+  font-size: 18px;
+  button {
+    width: 99%;
+    height: 99%;
+    font-weight: bold;
+    background-color: #f445423f;
   }
 }
 
 button, .finish-recipe {
   @include sm-text;
   background-color: $background-ivory;
+  margin: auto;
 }
 
-
 input {
+  background-color: $background-ivory;
   padding: 0.5em;
-  margin: 10px;
+  margin: 5px;
   font: 400 20px system-ui;
+}
+
+.recipe-index {
+  margin: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  @include text-no-margin;
+}
+
+.index-recipe {
+  border-radius: 3px;
+  box-shadow: 0px 1px 13px #0000003f;
+  &:hover {
+    transform: scale(1.1, 1.1);
+    transition: 0.1s;
+  }
+  padding: 10px;
+  margin: 10px;
+  height: 200px;
+  width: 200px;
+  background-color: $background-ivory;
 }
