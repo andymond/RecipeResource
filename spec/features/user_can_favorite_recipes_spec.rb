@@ -1,12 +1,12 @@
 require "rails_helper"
 
 describe "Any user" do
-  it "can favorite an existing recipe" do
+  it "can favorite an existing recipe", js: true do
     user   = create(:chef)
     recipe = user.restaurants.first.recipes.create(name: "cat food", station: "litter box")
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    VCR.use_cassete "No Reviews" do
+    VCR.use_cassette "No Reviews" do
       visit root_path
     end
 
