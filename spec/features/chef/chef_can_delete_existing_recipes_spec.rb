@@ -4,7 +4,7 @@ describe "As a chef" do
   it "it allows user to delete existing recipes", js: true do
     user = create(:chef)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    recipe = user.restaurants.first.recipes.create(name: "Cat food", station: "cat station")
+    user.restaurants.first.recipes.create(name: "Cat food", station: "cat station")
 
     VCR.use_cassette "No Reviews" do
       visit root_path
@@ -12,6 +12,10 @@ describe "As a chef" do
 
     VCR.use_cassette "No Reviews" do
       find(".cat-food").click
+    end
+
+    VCR.use_cassette "No Reviews" do
+      find(".show-edit-recipe").click
     end
 
     VCR.use_cassette "No Reviews" do
