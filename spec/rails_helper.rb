@@ -36,6 +36,14 @@ end
 Capybara.javascript_driver = :firefox
 Capybara.asset_host = "http://localhost:3000"
 
+unless ENV['TRAVIS_JOB_NUMBER'].nil?
+  caps = Selenium::WebDriver::Remote::Capabilities.firefox({
+    'tunnel-identifier' => ENV['TRAVIS_JOB_NUMBER']
+  })
+  username = ENV["SAUCE_USERNAME"]
+  access_key = ENV["SAUCE_ACCESS_KEY"]
+  Selenium::WebDriver.for :remote, url: "#{username}:#{access_key}@localhost:4445", desired_capabilities: caps
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
