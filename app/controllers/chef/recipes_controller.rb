@@ -1,18 +1,41 @@
 class Chef::RecipesController < ApplicationController
+
   def new
 
   end
 
   def create
     if Recipe.exists?(name: recipe_details[:name], restaurant_id: current_restaurant.id)
-      flash[:notice] = "Recipe already exists!"
+      flash[:error] = "Recipe already exists!"
       render :new
     else
-      rc = RecipeCoordinator.new(current_restaurant, recipe_details)
+      rc = RecipeCreator.new(current_restaurant, recipe_details)
       recipe = rc.create_recipe
       flash[:notice] = "Successfully created #{recipe.name}"
       redirect_to restaurant_recipe_path(current_restaurant, recipe)
     end
+  end
+
+  def edit
+    @recipe = RecipePresenter.new(params[:slug])
+  end
+
+  def update
+    ru = RecipeUpdater.new(recipe_update_params, params[:slug])
+    if recipe = ru.update_recipe
+      flash[:notice] = "Successfully updated #{recipe.name}"
+      render :js => "window.location = '#{restaurant_recipe_path(current_restaurant, recipe)}'"
+    else
+      flash[:error] = "Recipe update failed!"
+      render :edit
+    end
+  end
+
+  def destroy
+    recipe = current_restaurant.recipes.find_by(slug: params[:slug])
+    recipe.destroy
+    flash[:notice] = "Deleted #{recipe.name}"
+    redirect_to root_path
   end
 
   private
@@ -45,6 +68,10 @@ class Chef::RecipesController < ApplicationController
 
     def unit_params
       params.require(:unit).permit!.to_h
+    end
+
+    def recipe_update_params
+      params.require(:recipe).permit!.to_h
     end
 
 

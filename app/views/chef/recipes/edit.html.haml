@@ -1,0 +1,40 @@
+%h4.flex.justify-center
+  .inline.h4.recipe-station{contenteditable: true}
+    = @recipe.station
+%h1.flex.justify-center
+  .inline.h3.recipe-header{contenteditable: true}
+    = @recipe.name
+
+.recipe-ingredients
+  %table
+    - @recipe.ingredients_with_quantities_and_units.each_with_index do |set, i|
+      %tr.ingredient-set.ingredient-row{id: ("ingredient-row" + (i + 1).to_s)}
+        %td.specific-ingredient.ingredient-data{id: ("ingredient-data" + (i + 1).to_s), contenteditable: true}
+          = set[0]
+        %td.qty.ingredient-data{id: ("qty-data" + (i + 1).to_s), contenteditable: true}
+          = set[1]
+        %td.unit.ingredient-data{id: ("unit-data" + (i + 1).to_s), contenteditable: true}
+          = set[2]
+        %td
+          %button.remove-ingredient.rounded{onclick: "removeField('#{"ingredient-row" + (i + 1).to_s}')"}
+            Remove
+  #ingredient-field
+  %button.add_ingredient.px1.m1.rounded{type: "button", onClick: "addIngredient('ingredient-field')"}
+    Add Ingredient
+.instructions-container
+  %table.instructions
+    - @recipe.instructions.each_with_index do |step, i|
+      %tr{id: ("instruction-row" + (i + 1).to_s)}
+        %td.instruction{contenteditable: true, id: ("instruction-data" + (i + 1).to_s)}
+          = step
+        %td
+          %button.remove-ingredient.rounded{onclick: "removeField('#{"instruction-row" + (i + 1).to_s}')"}
+            Remove
+  #instruction-field
+  %button.add_instruction.px1.m1.rounded{type: "button", onclick: "addInstruction('instruction-field')"}
+    Add Step
+
+= button_tag "Update Recipe", class: "update-recipe rounded", type: "button", onclick: "updateRecipe(event)", data: {resSlug: "#{current_restaurant.slug}", recSlug: "#{@recipe.slug}"}
+
+= link_to chef_restaurant_recipe_path(current_restaurant, slug: @recipe.slug), method: :delete, class: "delete-recipe" do
+  = button_tag "Delete Recipe", class: "rounded", type: "button"

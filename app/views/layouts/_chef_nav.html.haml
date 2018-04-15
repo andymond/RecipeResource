@@ -1,5 +1,5 @@
 .user-nav
-    = link_to "New Recipe", new_chef_restaurant_recipe_path(current_restaurant)
-    = link_to "Update Restaurant Info", edit_chef_restaurant_path(current_user.restaurants.first.slug)
-    = link_to "Restaurant profile", restaurant_path(current_user.restaurants.first.slug)
-    = link_to "Home", dashboard_index_path
+  = link_to "Home", dashboard_index_path
+  = link_to "New Recipe", new_chef_restaurant_recipe_path(current_restaurant)
+  = link_to "Update Restaurant Info", edit_chef_restaurant_path(current_user.restaurants.first.slug)
+  = link_to "Restaurant profile", restaurant_path(current_user.restaurants.first.slug)

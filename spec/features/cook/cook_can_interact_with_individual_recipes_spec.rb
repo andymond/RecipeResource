@@ -19,7 +19,7 @@ describe "cook visits recipe show" do
     end
 
     VCR.use_cassette "No Reviews" do
-      click_on "squash ravioli"
+      click_on recipe.name
     end
 
     expect(current_path).to eq(restaurant_recipe_path(restaurant, recipe))

@@ -24,43 +24,43 @@ describe "As a cook" do
 
   it "allows user to filter recipes by station" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    restaurant.recipes.create(name: "squash ravioli", station: "pasta")
-    restaurant.recipes.create(name: "steak", station: "saute")
-    restaurant.recipes.create(name: "blue cheese salad", station: "garde a mange")
-    restaurant.recipes.create(name: "cobb salad", station: "garde a mange")
-    restaurant.recipes.create(name: "artisan doughnuts", station: "pastry")
+    recipe_1 = restaurant.recipes.create(name: "squash ravioli", station: "pasta")
+    recipe_2 = restaurant.recipes.create(name: "steak", station: "saute")
+    recipe_3 = restaurant.recipes.create(name: "blue cheese salad", station: "garde a mange")
+    recipe_4 = restaurant.recipes.create(name: "cobb salad", station: "garde a mange")
+    recipe_5 = restaurant.recipes.create(name: "artisan doughnuts", station: "pastry")
 
     VCR.use_cassette "No Reviews" do
       visit dashboard_index_path
     end
 
     VCR.use_cassette "No Reviews" do
-      click_on "pasta"
+      click_on recipe_1.station
     end
-    expect(current_url).to eq(restaurant_recipes_url(restaurant, station: "pasta"))
-    expect(page).to have_content("squash ravioli")
-    expect(page).to_not have_content("steak")
+    expect(current_url).to eq(restaurant_recipes_url(restaurant, station: recipe_1.station))
+    expect(page).to have_content(recipe_1.name)
+    expect(page).to_not have_content(recipe_2.name)
 
     VCR.use_cassette "No Reviews" do
-      click_on "garde a mange"
+      click_on recipe_3.station
     end
-    expect(current_url).to eq(restaurant_recipes_url(restaurant, station: "garde a mange"))
-    expect(page).to have_content("blue cheese salad")
-    expect(page).to have_content("cobb salad")
-    expect(page).to_not have_content("artisan doughnuts")
+    expect(current_url).to eq(restaurant_recipes_url(restaurant, station: recipe_3.station))
+    expect(page).to have_content(recipe_3.name)
+    expect(page).to have_content(recipe_4.name)
+    expect(page).to_not have_content(recipe_1.name)
 
     VCR.use_cassette "No Reviews" do
-      click_on "saute"
+      click_on recipe_2.station
     end
-    expect(current_url).to eq(restaurant_recipes_url(restaurant, station: "saute"))
-    expect(page).to have_content("steak")
-    expect(page).to_not have_content("cobb salad")
+    expect(current_url).to eq(restaurant_recipes_url(restaurant, station: recipe_2.station))
+    expect(page).to have_content(recipe_2.name)
+    expect(page).to_not have_content(recipe_4.name)
 
     VCR.use_cassette "No Reviews" do
-      click_on "pastry"
+      click_on recipe_5.station
     end
-    expect(current_url).to eq(restaurant_recipes_url(restaurant, station: "pastry"))
-    expect(page).to have_content("artisan doughnuts")
-    expect(page).to_not have_content("squash ravioli")
+    expect(current_url).to eq(restaurant_recipes_url(restaurant, station: recipe_5.station))
+    expect(page).to have_content(recipe_5.name)
+    expect(page).to_not have_content(recipe_1.name)
   end
 end

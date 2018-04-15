@@ -4,6 +4,14 @@ class RecipePresenter
     @recipe = Recipe.find_by(slug: slug)
   end
 
+  def name
+    recipe.name
+  end
+
+  def station
+    recipe.station
+  end
+
   def ingredients
     recipe.ingredients.map { |i| i.name }
   end
@@ -22,6 +30,10 @@ class RecipePresenter
 
   def instructions
     recipe.instructions.map { |i| i.step }
+  end
+
+  def slug
+    recipe.slug
   end
 
   private
