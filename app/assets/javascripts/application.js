@@ -113,8 +113,7 @@ function updateRecipe(event){
   const recipeStation      = document.querySelector('.recipe-station').innerText
   const recipeIngredients  = document.querySelector('.recipe-ingredients')
   const ingredients        = [...recipeIngredients.querySelectorAll('.ingredient-row')]
-  const recipeInstructions = document.querySelector('.instructions')
-  const instructions       = [...recipeInstructions.querySelectorAll('.instruction')]
+  const instructions       = [...document.querySelectorAll('.instruction')]
   const ingredientList = ingredients.map(row => {
     let rowData = row.querySelectorAll('.ingredient-data')
     return {

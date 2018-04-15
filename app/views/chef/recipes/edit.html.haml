@@ -35,3 +35,6 @@
     Add Step
 
 = button_tag "Update Recipe", class: "update-recipe rounded", type: "button", onclick: "updateRecipe(event)", data: {resSlug: "#{current_restaurant.slug}", recSlug: "#{@recipe.slug}"}
+
+= link_to chef_restaurant_recipe_path(current_restaurant, slug: @recipe.slug), method: :delete, class: "delete-recipe" do
+  = button_tag "Delete Recipe", class: "rounded", type: "button"
