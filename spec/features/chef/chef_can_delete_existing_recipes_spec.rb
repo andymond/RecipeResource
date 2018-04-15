@@ -18,7 +18,7 @@ describe "As a chef" do
       find(".delete-recipe").click
     end
 
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(dashboard_index_path)
     expect(page).to_not have_css(".cat-food")
   end
 end
