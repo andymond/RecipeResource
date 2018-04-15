@@ -7,6 +7,8 @@ describe User, type: :model do
     it {should have_many(:user_roles)}
     it {should have_many(:roles)}
     it {should have_many(:restaurants)}
+    it {should have_many(:favorites)}
+    it {should have_many(:recipes)}
   end
 
   describe "oauth" do
