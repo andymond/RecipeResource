@@ -128,11 +128,43 @@ function updateRecipe(event){
 
 function putUpdateRecipe(recipe, resSlug, recSlug) {
   const url = `/chef/restaurants/${resSlug}/recipes/${recSlug}`
-  console.log(url)
   return jQuery.ajax({
     type: 'PUT',
     url: url,
     contentType: 'application/json',
     data: JSON.stringify({recipe})
+  })
+}
+
+function favorite(event) {
+  event.preventDefault();
+  const {uid, rid} = event.target.dataset
+  var star = document.getElementById(event.target.id)
+  if (star.style.color === "rgba(0, 0, 0, 0.29)") {
+    star.style.color = "rgb(244, 125, 66)";
+    postFavoriteRecipe(uid, rid)
+  } else {
+    star.style.color = "rgba(0, 0, 0, 0.29)"
+    deleteFavoriteRecipe(uid, rid)
+  }
+}
+
+function postFavoriteRecipe(uid, recipe_id) {
+  const url = `/users/${uid}/favorites`
+  return jQuery.ajax({
+    type: "POST",
+    url: url,
+    contentType: "application/json",
+    data: JSON.stringify({recipe_id})
+  })
+}
+
+function deleteFavoriteRecipe(uid, recipe_id) {
+  const url = `/users/${uid}/favorites/${recipe_id}`
+  return jQuery.ajax({
+    type: "DELETE",
+    url: url,
+    contentType: "application/json",
+    data: JSON.stringify({recipe_id})
   })
 }
