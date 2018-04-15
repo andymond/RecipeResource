@@ -23,12 +23,17 @@ class Chef::RecipesController < ApplicationController
   def update
     ru = RecipeUpdater.new(recipe_update_params)
     if recipe = ru.update_recipe
-      flash[:notice] = "Successfully created #{recipe.name}"
+      flash[:notice] = "Successfully updated #{recipe.name}"
       render :js => "window.location = '#{restaurant_recipe_path(current_restaurant, recipe)}'"
     else
       flash[:error] = "Recipe update failed!"
       render :edit
     end
+  end
+
+  def destroy
+    current_restaurant.recipes.find_by(slug: params[:slug]).destroy
+    redirect_to root_path
   end
 
   private

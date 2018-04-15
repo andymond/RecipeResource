@@ -3,9 +3,9 @@ class Recipe < ApplicationRecord
   validates_uniqueness_of :name, { scope: :restaurant_id }
   before_save :generate_slug, if: :name_changed?
   before_save :downcase_station
-  has_many :recipe_ingredients
+  has_many :recipe_ingredients, dependent: :destroy
   has_many :ingredients, through: :recipe_ingredients
-  has_many :instructions
+  has_many :instructions, dependent: :destroy
   belongs_to :restaurant
 
   def to_param
