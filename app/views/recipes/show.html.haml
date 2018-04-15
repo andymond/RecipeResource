@@ -22,6 +22,8 @@
         = step
 
 - if "chef plaform_admin".include?(current_role)
-  .recipe-options.flex.justify-center
+  .recipe-options.flex.justify-center.mb4
     = link_to edit_chef_restaurant_recipe_path(current_restaurant, slug: @recipe.slug) do
-      = button_tag "Edit Recipe", class: "rounded", type: "button"
+      = button_tag "Edit Recipe", class: "rounded m1 show-edit-recipe", type: "button"
+    = link_to chef_restaurant_recipe_path(current_restaurant, slug: @recipe.slug) do
+      = button_tag "Delete Recipe", class: "rounded m1", type: "button"

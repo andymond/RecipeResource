@@ -14,7 +14,8 @@
   width: 0px;
   height: 100vh;
   min-height: 500px;
-  background-color: $background-gray ;
+  background-color: $background-gray;
+  box-shadow: 0px 1px 10px #8888885f;
   overflow-x: hidden;
   @include column-start;
   transition: 0.5s;

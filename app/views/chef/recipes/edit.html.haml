@@ -9,11 +9,11 @@
   %table
     - @recipe.ingredients_with_quantities_and_units.each_with_index do |set, i|
       %tr.ingredient-set.ingredient-row{id: ("ingredient-row" + (i + 1).to_s)}
-        %td.specific-ingredient.ingredient-data{id: ("ingredient" + (i + 1).to_s), contenteditable: true}
+        %td.specific-ingredient.ingredient-data{id: ("ingredient-data" + (i + 1).to_s), contenteditable: true}
           = set[0]
-        %td.qty.ingredient-data{id: ("qty" + (i + 1).to_s), contenteditable: true}
+        %td.qty.ingredient-data{id: ("qty-data" + (i + 1).to_s), contenteditable: true}
           = set[1]
-        %td.unit.ingredient-data{id: ("unit" + (i + 1).to_s), contenteditable: true}
+        %td.unit.ingredient-data{id: ("unit-data" + (i + 1).to_s), contenteditable: true}
           = set[2]
         %td
           %button.remove-ingredient.rounded{onclick: "removeField('#{"ingredient-row" + (i + 1).to_s}')"}
@@ -25,7 +25,7 @@
   %table.instructions
     - @recipe.instructions.each_with_index do |step, i|
       %tr{id: ("instruction-row" + (i + 1).to_s)}
-        %td.instruction{contenteditable: true}
+        %td.instruction{contenteditable: true, id: ("instruction-data" + (i + 1).to_s)}
           = step
         %td
           %button.remove-ingredient.rounded{onclick: "removeField('#{"instruction-row" + (i + 1).to_s}')"}
