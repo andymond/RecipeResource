@@ -21,7 +21,7 @@ class Chef::RecipesController < ApplicationController
   end
 
   def update
-    ru = RecipeUpdater.new(recipe_update_params)
+    ru = RecipeUpdater.new(recipe_update_params, params[:slug])
     if recipe = ru.update_recipe
       flash[:notice] = "Successfully updated #{recipe.name}"
       render :js => "window.location = '#{restaurant_recipe_path(current_restaurant, recipe)}'"
@@ -32,7 +32,9 @@ class Chef::RecipesController < ApplicationController
   end
 
   def destroy
-    current_restaurant.recipes.find_by(slug: params[:slug]).destroy
+    recipe = current_restaurant.recipes.find_by(slug: params[:slug])
+    recipe.destroy
+    flash[:notice] = "Deleted #{recipe.name}"
     redirect_to root_path
   end
 
