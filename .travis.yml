@@ -7,4 +7,5 @@ before_script:
   - psql -c 'create database kitchen_keeper_test;' -U postgres
 
 before_install:
+  - gem install geckodriver-helper
   - gem install selenium-webdriver
