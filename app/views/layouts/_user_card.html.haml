@@ -6,49 +6,31 @@
   .restaurant-name.mb1
     = current_user.restaurants.first.name
   = image_tag current_user.image_url, size: 200, class: "circle mb1"
+
+  .favorite-recipes.m1
+    = link_to user_favorites_path(current_user) do
+      .link-to-favorites-index.favorite
+        Favorite Recipes
+    - current_user.recipes.take(3).each do |recipe|
+      = link_to restaurant_recipe_path(current_restaurant, recipe.slug) do
+        .favorite{class: "#{recipe.slug}"}
+          = recipe.name
+
   .yelp-reviews.m1
     %div.flex.items-center.justify-center
     - if current_reviews.reviews.nil?
       No Yelp Reviews Yet!
     - else
       = image_tag "yelp_logo.png", size: "100x64"
-    = link_to current_reviews.url(0) do
-      .review
-        .restaurant-rating
-          = current_reviews.rating(0)
-        .review-text
-          = current_reviews.text(0)
-          %div= current_reviews.reviewer(0)
-          %div= current_reviews.time(0)
-    = link_to current_reviews.url(1) do
-      .review
-        .restaurant-rating
-          = current_reviews.rating(1)
-        .review-text
-          = current_reviews.text(1)
-          %div= current_reviews.reviewer(1)
-          %div= current_reviews.time(1)
-    = link_to current_reviews.url(2) do
-      .review
-        .restaurant-rating
-          = current_reviews.rating(2)
-        .review-text
-          = current_reviews.text(2)
-          %div= current_reviews.reviewer(2)
-          %div= current_reviews.time(2)
-  .favorite-recipes.m1
-    = link_to user_favorites_path(current_user) do
-      .link-to-favorites-index
-        Favorite Recipes
-    =link_to "#" do
-      .favorite
-        * TEST favorite recipe
-    =link_to "#" do
-      .favorite
-        * TEST favorite recipe
-    =link_to "#" do
-      .favorite
-        * TEST favorite recipe
-  .user-options.mt3
+    -(0..2).each do |n|
+      = link_to current_reviews.url(n) do
+        .review
+          .restaurant-rating
+            = current_reviews.rating(n)
+          .review-text
+            = current_reviews.text(n)
+            %div= current_reviews.reviewer(n)
+            %div= current_reviews.time(n)
+  .user-options.mt2.mb4
     = link_to "Settings", "#"
     = link_to "Logout", logout_path, class: "logout"
