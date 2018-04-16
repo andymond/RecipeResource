@@ -4,6 +4,10 @@ class RecipePresenter
     @recipe = Recipe.find_by(slug: slug)
   end
 
+  def id
+    recipe.id
+  end
+
   def name
     recipe.name
   end

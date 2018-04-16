@@ -23,7 +23,7 @@ $background-ivory: #fdfff05A;
   font-family: 'Cantarell', sans-serif;
   font-weight: lighter;
   line-height: 25px;
-  margin: 0 0 23px 0;
+  margin: 0 0 15px 0;
 }
 
 @mixin text-no-margin {
@@ -33,7 +33,8 @@ $background-ivory: #fdfff05A;
 }
 
 @mixin sm-text {
-  @include text;
+  font-family: 'Cantarell', sans-serif;
+  font-weight: lighter;
   font-size: 15px;
 }
 

@@ -1,3 +1,4 @@
 .stations-nav
+  = link_to "All", dashboard_index_path(current_user)
   - current_stations.each do |station|
     = link_to station, restaurant_recipes_path(current_restaurant, station: station)

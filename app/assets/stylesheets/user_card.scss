@@ -31,8 +31,20 @@
 
 .review, .favorite {
   h4 { margin: 0px; }
+  @include column-center;
   padding: 10px;
-  &:hover { background-color: #FFFFFFAA; }
+  &:hover {
+    background-color: #FFFFFFAA;
+    cursor: pointer;
+   }
+}
+
+.favorite {
+  @include text-no-margin;
+}
+
+.review {
+  @include sm-text;
 }
 
 .user-options, .user-name, .restaurant-name {

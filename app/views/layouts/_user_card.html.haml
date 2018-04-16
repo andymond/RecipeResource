@@ -6,6 +6,14 @@
   .restaurant-name.mb1
     = current_user.restaurants.first.name
   = image_tag current_user.image_url, size: 200, class: "circle mb1"
+  .favorite-recipes.m1
+    = link_to user_favorites_path(current_user) do
+      .favorite.bold.h3.link-to-favorites-index
+        Favorite Recipes
+    - current_user.random_favorites.each do |recipe|
+      = link_to restaurant_recipe_path(current_restaurant, recipe.slug) do
+        .favorite
+          = recipe.name
   .yelp-reviews.m1
     %div.flex.items-center.justify-center
     - if current_reviews.reviews.nil?
@@ -36,16 +44,6 @@
           = current_reviews.text(2)
           %div= current_reviews.reviewer(2)
           %div= current_reviews.time(2)
-  .favorite-recipes.m1
-    =link_to "#" do
-      .favorite
-        * TEST favorite recipe
-    =link_to "#" do
-      .favorite
-        * TEST favorite recipe
-    =link_to "#" do
-      .favorite
-        * TEST favorite recipe
-  .user-options.mt3
+  .user-options.mt2.mb4
     = link_to "Settings", "#"
     = link_to "Logout", logout_path, class: "logout"

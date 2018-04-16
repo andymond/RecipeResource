@@ -1,8 +1,10 @@
 %h4.h4.recipe-station
   = @recipe.station
 %h1.h3.recipe-header
-
   = @recipe.name
+  - favorite = current_user.recipes.find_by(id: @recipe.id) ? "color: rgb(244, 125, 66);" : "color: rgba(0, 0, 0, 0.29);"
+  %i.circle.favorite.material-icons.m1{id: "favorite-#{@recipe.slug}", onclick: "favorite(event)", style: favorite, data: {uid: current_user.id, rid: @recipe.id}}
+    star
 
 .recipe-ingredients.m2
   %table.m3
