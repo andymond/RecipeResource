@@ -37,6 +37,9 @@
           %div= current_reviews.reviewer(2)
           %div= current_reviews.time(2)
   .favorite-recipes.m1
+    = link_to user_favorites_path(current_user) do
+      .link-to-favorites-index
+        Favorite Recipes
     =link_to "#" do
       .favorite
         * TEST favorite recipe
