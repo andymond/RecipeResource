@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
 
-  resources :users, only: [:create]
+  resources :users, only: [:create] do
+    resources :favorites, only: [:create, :destroy]
+  end
   resources :google_users, only: [:create]
   resources :sessions, only: [:create]
   resources :restaurants, only: [:show, :new, :create], param: :slug do
