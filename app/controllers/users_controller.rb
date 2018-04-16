@@ -14,10 +14,29 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+  def update
+    user = User.find(params[:id])
+    if user.update(update_params)
+      flash[:notice] = "Successfully updated profile"
+      redirect_to dashboard_index_path
+    else
+      flash[:error] = "Couldn't update profile"
+      render :edit
+    end
+  end
+
   private
 
     def user_params
       params.permit(:first_name, :last_name, :email)
+    end
+
+    def update_params
+      params.require(:user).permit(:first_name, :last_name, :email)
     end
 
     def credential_params

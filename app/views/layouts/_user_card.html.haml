@@ -31,6 +31,7 @@
             = current_reviews.text(n)
             %div= current_reviews.reviewer(n)
             %div= current_reviews.time(n)
+
   .user-options.mt2.mb4
-    = link_to "Settings", "#"
+    = link_to "Settings", edit_user_path(current_user), class: "update-profile"
     = link_to "Logout", logout_path, class: "logout"

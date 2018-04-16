@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
 
-  resources :users, only: [:create] do
+  resources :users, only: [:create, :edit, :update] do
     resources :favorites, only: [:create, :destroy, :index]
   end
   resources :google_users, only: [:create]
