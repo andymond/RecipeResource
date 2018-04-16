@@ -40,15 +40,10 @@
     = link_to user_favorites_path(current_user) do
       .link-to-favorites-index
         Favorite Recipes
-    =link_to "#" do
-      .favorite
-        * TEST favorite recipe
-    =link_to "#" do
-      .favorite
-        * TEST favorite recipe
-    =link_to "#" do
-      .favorite
-        * TEST favorite recipe
+    - current_user.recipes.take(3).each do |recipe|
+      = link_to restaurant_recipe_path(current_restaurant, recipe.slug) do
+        .favorite{class: "#{recipe.slug}"}
+          = recipe.name
   .user-options.mt3
     = link_to "Settings", "#"
     = link_to "Logout", logout_path, class: "logout"
