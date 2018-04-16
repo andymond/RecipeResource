@@ -1,0 +1,9 @@
+.recipe-index
+  - @recipes.each do |recipe|
+    = link_to restaurant_recipe_path(current_restaurant, recipe.slug) do
+      .index-recipe.flex.flex-column.justify-between{class: "#{recipe.slug}"}
+        %p.m0
+          = recipe.name
+        - favorite = current_user.recipes.find_by(id: recipe.id) ? "color: rgb(244, 125, 66);" : "color: rgba(0, 0, 0, 0.29);"
+        %i.circle.favorite.material-icons{id: "favorite-#{recipe.slug}", onclick: "favorite(event)", style: favorite, data: {uid: current_user.id, rid: recipe.id}}
+          star
