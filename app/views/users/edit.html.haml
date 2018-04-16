@@ -1,0 +1,9 @@
+%h3
+  User Information
+
+= form_for current_user do |f|
+  = f.text_field :first_name, html: {value: current_user.first_name}
+  = f.text_field :last_name, html: {value: current_user.last_name}
+  = f.text_field :email, html: {value: current_user.email}
+
+  = f.submit "Update Profile"
