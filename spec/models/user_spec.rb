@@ -11,6 +11,26 @@ describe User, type: :model do
     it {should have_many(:recipes)}
   end
 
+  describe "instance methods" do
+    it "random_favorites" do
+      user     = create(:chef)
+      recipe_1 = user.restaurants.first.recipes.create(name: "cat food", station: "litter box")
+      recipe_2 = user.restaurants.first.recipes.create(name: "dog food", station: "litter box")
+      recipe_3 = user.restaurants.first.recipes.create(name: "fish food", station: "litter box")
+      user.favorites.create(recipe_id: recipe_1.id)
+      user.favorites.create(recipe_id: recipe_2.id)
+      user.favorites.create(recipe_id: recipe_3.id)
+
+      favorite_recipes = [recipe_1, recipe_2, recipe_3]
+      random_favorites = user.random_favorites
+
+      expect(random_favorites.count).to eq(3)
+      expect(favorite_recipes).to include(random_favorites[0])
+      expect(favorite_recipes).to include(random_favorites[1])
+      expect(favorite_recipes).to include(random_favorites[2])
+    end
+  end
+
   describe "oauth" do
     it "creates or updates itself from oauth hash" do
       auth = {
