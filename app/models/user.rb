@@ -35,10 +35,6 @@ class User < ApplicationRecord
     user_roles.last.update(restaurant_id: restaurant.id)
   end
 
-  def random_favorites
-    recipes.sample(3)
-  end
-
   def self.update_or_create(auth)
    gc = GoogleCredential.find_by(uid: auth[:uid]) || GoogleCredential.new
    gc.attributes = {

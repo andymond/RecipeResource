@@ -73,6 +73,6 @@ describe "Any user" do
       end
     end
 
-    expect(current_path).to eq(restaurant_recipes_path(user.restaurants.first, recipe_2))
+    expect(current_path).to eq(restaurant_recipe_path(user.restaurants.first, recipe_2))
   end
 end
