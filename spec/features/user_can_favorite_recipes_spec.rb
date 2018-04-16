@@ -50,4 +50,29 @@ describe "Any user" do
     expect(page).to have_content(recipe_2.name)
     expect(page).to have_content(recipe_3.name)
   end
+
+  it "can view selected favorite recipes in user card", js: true do
+    user     = create(:chef)
+    recipe_1 = user.restaurants.first.recipes.create(name: "cat food", station: "litter box")
+    recipe_2 = user.restaurants.first.recipes.create(name: "dog food", station: "litter box")
+    recipe_3 = user.restaurants.first.recipes.create(name: "fish food", station: "litter box")
+    user.favorites.create(recipe_id: recipe_1.id)
+    user.favorites.create(recipe_id: recipe_2.id)
+    user.favorites.create(recipe_id: recipe_3.id)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    VCR.use_cassette "No Reviews" do
+      visit root_path
+    end
+
+    find(".open-card").click
+
+    VCR.use_cassette "No Reviews" do
+      within ".user-card" do
+        find(".dog-food").click
+      end
+    end
+
+    expect(current_path).to eq(restaurant_recipes_path(user.restaurants.first, recipe_2))
+  end
 end
