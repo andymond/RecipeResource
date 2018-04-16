@@ -1,5 +1,9 @@
 class FavoritesController < ApplicationController
 
+  def index
+    @recipes = current_user.recipes
+  end
+
   def create
     Favorite.find_or_create_by(favorite_params)
   end
