@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_reviews
-    @reviews ||= ReviewsPresenter.new(current_user.restaurants.first)
+    @reviews ||= Review.new(current_user.restaurants.first)
   end
 
   def current_restaurant

@@ -1,4 +1,5 @@
-class ReviewsPresenter
+class Review
+  attr_reader :reviews
 
   def initialize(restaurant)
     service = YelpReviewService.new
@@ -27,9 +28,5 @@ class ReviewsPresenter
       t.strftime("%b %d %Y")
     end
   end
-
-
-  private
-    attr_reader :reviews
 
 end

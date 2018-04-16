@@ -8,6 +8,8 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :recipe_ingredients
   has_many :instructions, dependent: :destroy
   belongs_to :restaurant
+  has_many :favorites
+  has_many :users, through: :favorites
 
   def to_param
     slug
