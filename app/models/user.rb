@@ -35,6 +35,12 @@ class User < ApplicationRecord
     user_roles.last.update(restaurant_id: restaurant.id)
   end
 
+  def restaurant_role(role, slug)
+    set_role(role)
+    restaurant = Restaurant.find_by(slug: slug)
+    user_roles.last.update(restaurant_id: restaurant.id)
+  end
+
   def self.update_or_create(auth)
    gc = GoogleCredential.find_by(uid: auth[:uid]) || GoogleCredential.new
    gc.attributes = {
