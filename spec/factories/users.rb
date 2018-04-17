@@ -36,6 +36,20 @@ FactoryBot.define do
     end
   end
 
+  factory :chef_2, class: User do
+    sequence :first_name { |n| "first_name2#{n}"}
+    sequence :last_name { |n| "last_name2#{n}"}
+    sequence :email { |n| "email2#{n}@email.com"}
+    before(:create) do |user|
+      user.create_app_credential(password: "password")
+    end
+    after(:create) do |user|
+      VCR.use_cassette "Factory restaurant 2" do
+        user.set_restaurant(name: "testaurant2", zipcode: 54321)
+      end
+    end
+  end
+
   factory :cook, class: User do
     sequence :first_name { |n| "first_name#{n}"}
     sequence :last_name { |n| "last_name#{n}"}

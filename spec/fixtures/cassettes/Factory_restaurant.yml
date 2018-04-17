@@ -52,6 +52,6 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"businesses": [], "total": 0, "region": {"center": {"longitude": 5.8000946044921875,
         "latitude": 49.53378466563086}}}'
-    http_version: 
+    http_version:
   recorded_at: Tue, 10 Apr 2018 20:32:34 GMT
 recorded_with: VCR 4.0.0
