@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
 
+  resources :notifications, only: [:new, :create]
+
   resources :users, only: [:create, :edit, :update] do
     resources :favorites, only: [:create, :destroy, :index]
   end
