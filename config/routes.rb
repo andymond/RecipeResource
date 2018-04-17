@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :notifications, only: [:new, :create]
 
-  resources :users, only: [:create, :edit, :update] do
+  resources :users, only: [:new, :create, :edit, :update] do
     resources :favorites, only: [:create, :destroy, :index]
   end
   resources :google_users, only: [:create]

@@ -3,7 +3,7 @@ require "rails_helper"
 describe UserNotifier, type: :mailer do
   it "#invite" do
     user = create(:chef)
-    email = UserNotifier.invite(user.restaurants.first, "test@testmail.com")
+    email = UserNotifier.invite(user.restaurants.first, "cook", "test@testmail.com")
 
     email.deliver_now
 
