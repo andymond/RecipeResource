@@ -14,9 +14,12 @@ describe "As a chef" do
     end
 
     fill_in "user_email", with: "test@testmail.com"
-    click_on "Invite Team Member"
+
+    VCR.use_cassette "No Reviews" do
+      click_on "Invite Team Member"
+    end
 
     expect(current_path).to eq(dashboard_index_path)
-    expect(page).to have_content("Invited user to join #{chef.restaurants.first.name}!")
+    expect(page).to have_content("Invited user to join #{user.restaurants.first.name}!")
   end
 end
