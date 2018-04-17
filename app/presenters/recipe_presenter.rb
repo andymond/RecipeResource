@@ -4,6 +4,14 @@ class RecipePresenter
     @recipe = Recipe.find_by(slug: slug)
   end
 
+  def primary_image
+    if recipe.recipe_images.empty?
+      "tray.png"
+    else
+      recipe.recipe_images.first.recipe_image_url.to_s
+    end
+  end
+
   def name
     recipe.name
   end
