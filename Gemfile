@@ -16,6 +16,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'basscss-rails'
 gem "haml-rails", "~> 1.0"
 gem 'material_icons'
+gem 'carrierwave'
+gem 'mini_magick'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
