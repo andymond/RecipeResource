@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "As a user with role 'chef'" do
+describe "As a chef" do
   it "allows chef to create a new recipe", js: true do
     user = create(:chef)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
