@@ -1,0 +1,20 @@
+@import 'vars_mixins';
+
+.restaurant-show-details {
+  @include column-center;
+  @include sub-header;
+}
+
+.restaurant-prof-crop-outer {
+  position: relative;
+  overflow: hidden;
+  height: 400px;
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  .restaurant-profile-crop-inner {
+    z-index: 1;
+  }
+}

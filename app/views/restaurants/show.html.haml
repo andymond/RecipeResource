@@ -1,8 +1,19 @@
-.restaurant-profile
-  = image_tag @restaurant.image_url;
-  = @restaurant.name
-  = @restaurant.address
-  Yelp Rating:
-  = @restaurant.rating
-  = @restaurant.phone_number
-  = link_to "See All Yelp Reviews", @restaurant.yelp_url
+.restaurant-profile.flex.justify-around.items-center.mt3
+  .restaurant-prof-crop-outer.rounded
+    = image_tag @restaurant.image_url, class: "restaurant-profile-crop-inner";
+  .restaurant-show-details
+    %h1
+      = @restaurant.name
+    %p
+      = @restaurant.address
+    %p
+      = @restaurant.phone_number
+    %p
+      Yelp Rating:
+    %p
+      = @restaurant.rating
+
+    - if ["chef", "admin"].include?(current_role)
+      = link_to "Update Restaurant Info", edit_chef_restaurant_path(current_user.restaurants.first.slug)
+    %p
+      = link_to "See All Yelp Reviews", @restaurant.yelp_url

@@ -3,17 +3,23 @@
 %h1.h3.recipe-header
 
   = @recipe.name
+.recipe-top.flex.justify-center.m2.p2
+  .recipe-image
+    .recipe-image-crop-outer
+      = image_tag(@recipe.primary_image, class: "recipe-image-crop-inner")
+    = link_to new_chef_restaurant_recipe_image_path(current_restaurant, @recipe.slug) do
+      = button_tag "Add Image", id: "add-image-to-recipe", class: "rounded m1", type: "button"
 
-.recipe-ingredients.m2
-  %table.m3
-    - @recipe.ingredients_with_quantities_and_units.each do |set|
-      %tr.ingredient-set
-        %td.ingredient
-          = set[0]
-        %td.quantity
-          = set[1]
-        %td.unit
-          = set[2]
+  .recipe-ingredients.m2
+    %table.m3
+      - @recipe.ingredients_with_quantities_and_units.each do |set|
+        %tr.ingredient-set
+          %td.ingredient
+            = set[0]
+          %td.quantity
+            = set[1]
+          %td.unit
+            = set[2]
 
 .instructions-container.m2
   %ol
