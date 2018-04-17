@@ -4,6 +4,12 @@
 
   = @recipe.name
 
+.recipe-image
+  = image_tag(@recipe.primary_image)
+
+= link_to new_chef_restaurant_recipe_image_path(current_restaurant, @recipe.slug) do
+  = button_tag "Add Image", id: "add-image-to-recipe", class: "rounded m1", type: "button"
+
 .recipe-ingredients.m2
   %table.m3
     - @recipe.ingredients_with_quantities_and_units.each do |set|
