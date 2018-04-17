@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.yelp.com/v3/businesses/reviews
+    uri: https://api.yelp.com/v3/businesses/search?category=restaurants&location=54321&term=testaurant2
     body:
       encoding: US-ASCII
       string: ''
@@ -17,35 +17,41 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
       Server:
       - nginx
       Content-Type:
       - application/json
+      Ratelimit-Dailylimit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4976'
+      Ratelimit-Resettime:
+      - '2018-04-11T00:00:00+00:00'
       X-Proxied:
       - 10-65-188-246-useast1bprod
-      Content-Length:
-      - '102'
+      Transfer-Encoding:
+      - chunked
       Accept-Ranges:
       - bytes
       Date:
-      - Tue, 17 Apr 2018 21:20:02 GMT
+      - Tue, 10 Apr 2018 20:32:36 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-den19628-DEN
+      - cache-den19630-DEN
       X-Cache:
       - MISS
       X-Cache-Hits:
       - '0'
     body:
-      encoding: UTF-8
-      string: '{"error": {"code": "BUSINESS_NOT_FOUND", "description": "The requested
-        business could not be found."}}'
-    http_version: 
-  recorded_at: Tue, 17 Apr 2018 21:20:02 GMT
+      encoding: ASCII-8BIT
+      string: '{"businesses": [], "total": 0, "region": {"center": {"longitude": 5.8000946044921875,
+        "latitude": 49.53378466563086}}}'
+    http_version:
+  recorded_at: Tue, 10 Apr 2018 20:32:34 GMT
 recorded_with: VCR 4.0.0
