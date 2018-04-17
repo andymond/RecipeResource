@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
   def authorize!
     unless authorized?
       flash[:error] = "Resource not found"
-      redirect_to dashboard_index_url
+      redirect_to root_path
     end
   end
 
