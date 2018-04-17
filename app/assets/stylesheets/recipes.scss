@@ -13,6 +13,19 @@
   @include column-center;
 }
 
+.recipe-image-crop-outer {
+  position: relative;
+  overflow: hidden;
+  height: 400px;
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .recipe-image-crop-inner {
+    position: absolute;
+  }
+}
+
 .recipe-ingredients, .instructions-container {
   @include column-center;
   @include text;
@@ -103,15 +116,33 @@ input {
   @include text-no-margin;
 }
 
+.thumb-image {
+  position: absolute;
+  height: 150px;
+  width: 200px;
+  overflow: hidden;
+  .index-image {
+    z-index: 1;
+    opacity: 0.9;
+  }
+}
+
 .index-recipe {
+  p, i {
+    z-index: 2;
+  }
+  p {
+    padding: 2px;
+    background-color: $background-ivory;
+  }
   border-radius: 3px;
   box-shadow: 0px 1px 13px #0000003f;
   &:hover {
     transform: scale(1.1, 1.1);
     transition: 0.1s;
   }
-  padding: 10px;
   margin: 10px;
+  padding: 10px;
   height: 200px;
   width: 200px;
   background-color: $background-ivory;

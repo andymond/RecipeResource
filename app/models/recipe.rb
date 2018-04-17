@@ -10,6 +10,7 @@ class Recipe < ApplicationRecord
   belongs_to :restaurant
   has_many :favorites
   has_many :users, through: :favorites
+  has_many :recipe_images
 
   def to_param
     slug
@@ -17,6 +18,14 @@ class Recipe < ApplicationRecord
 
   def self.filter_by_station(station)
     where(station: station)
+  end
+
+  def thumb
+    if recipe_images.empty?
+      "tray.svg"
+    else
+      recipe_images.first.recipe_image_url(:thumb).to_s
+    end
   end
 
   private
