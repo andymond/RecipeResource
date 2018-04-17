@@ -1,0 +1,4 @@
+= form_tag chef_restaurant_recipe_image_index_path(current_restaurant, @recipe), multipart: true do
+
+  = file_field_tag "file", required: 'required'
+  = submit_tag "Add Image for #{@recipe.name}", class: "rounded"
