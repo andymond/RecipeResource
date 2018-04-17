@@ -6,6 +6,7 @@ describe Recipe do
     it {should have_many(:ingredients)}
     it {should belong_to(:restaurant)}
     it {should have_many(:favorites)}
+    it {should have_many(:recipe_images)}
     it {should have_many(:users)}
   end
 
