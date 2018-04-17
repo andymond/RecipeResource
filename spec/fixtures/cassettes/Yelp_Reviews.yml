@@ -65,6 +65,6 @@ http_interactions:
         fun!...", "rating": 5, "time_created": "2018-03-24 13:38:42", "user": {"image_url":
         "https://s3-media4.fl.yelpcdn.com/photo/fNHZyTtArJF-CF6cy7J-yQ/o.jpg", "name":
         "Heidi F."}}], "total": 163, "possible_languages": ["en"]}'
-    http_version: 
+    http_version:
   recorded_at: Sun, 08 Apr 2018 18:10:51 GMT
 recorded_with: VCR 4.0.0
