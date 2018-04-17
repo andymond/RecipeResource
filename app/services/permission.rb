@@ -37,12 +37,10 @@ class Permission
   end
 
   def cook_permissions
-    return true
-    # return true if user.restaurants.include?(restaurant)
-    # return true if controller == "sessions"
-    # return true if controller == "recipes"  && action.in?(%w(index show))
-    # return true if controller == "dashboard"
-    # return true if controller == "favorites"
+    return true if controller == "sessions"
+    return true if controller == "recipes"  && action.in?(%w(index show))
+    return true if controller == "dashboard"
+    return true if controller == "favorites"
   end
 
   def visitor_permissions
