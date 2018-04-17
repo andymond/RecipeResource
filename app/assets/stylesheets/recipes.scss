@@ -13,6 +13,19 @@
   @include column-center;
 }
 
+.recipe-image-crop-outer {
+  position: relative;
+  overflow: hidden;
+  height: 400px;
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .recipe-image-crop-inner {
+    position: absolute;
+  }
+}
+
 .recipe-ingredients, .instructions-container {
   @include column-center;
   @include text;
