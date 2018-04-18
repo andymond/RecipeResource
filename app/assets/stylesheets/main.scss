@@ -133,3 +133,17 @@ body {
     @include sub-header;
   }
 }
+
+.new-user-form {
+  padding: 15px;
+  width: 300px;
+  margin: 30px auto;
+  background-color: $background-gray;
+  h3 {
+    @include sub-header;
+    text-align: center;
+  }
+  form {
+    text-align: center;
+  }
+}
