@@ -11,6 +11,7 @@ class Recipe < ApplicationRecord
   has_many :favorites
   has_many :users, through: :favorites
   has_many :recipe_images
+  has_many :comments
 
   def to_param
     slug

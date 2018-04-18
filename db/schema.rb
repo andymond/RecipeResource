@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416214536) do
+ActiveRecord::Schema.define(version: 20180418180455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20180416214536) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_app_credentials_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "author"
+    t.text "body"
+    t.bigint "recipe_id"
+    t.index ["recipe_id"], name: "index_comments_on_recipe_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -121,6 +128,7 @@ ActiveRecord::Schema.define(version: 20180416214536) do
   end
 
   add_foreign_key "app_credentials", "users"
+  add_foreign_key "comments", "recipes"
   add_foreign_key "favorites", "recipes"
   add_foreign_key "favorites", "users"
   add_foreign_key "google_credentials", "users"
