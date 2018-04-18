@@ -10,6 +10,11 @@ body {
   }
 }
 
+.notice {
+  @include text;
+  background-color: $background-ivory;
+}
+
 #main {
   transition: margin-left 0.5s;
   margin-bottom: 35px;
@@ -99,5 +104,23 @@ body {
     @include m-text;
     display: block;
     text-align: center;
+  }
+}
+
+.invite-user-form, .update-restaurant-form {
+  background: $background-gray;
+  padding: 15px;
+  width: 400px;
+  margin: 40px auto;
+  input{
+    width: 350px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+   }
+  .role-select {
+    background-color: $background-ivory;
+    width: 150px;
+    height: 40px;
+    @include sub-header;
   }
 }
