@@ -1,21 +1,28 @@
 = form_tag chef_restaurant_recipes_path(current_restaurant), class: "create-recipe" do
-  %h3.m1
-    New Recipe
-  .recipe-info.py1
-    = text_field_tag :recipe_name, nil, placeholder: "recipe name", class: "mx2", required: true
-    = text_field_tag :recipe_station, nil, placeholder: "recipe station", class: "mx2", required: true
-  .clearfix.mx3
-    .ingredients.col.col-6
-      %h4.m0
-        Ingredients
-      %button.add_ingredient.px1.m1.rounded{type: "button", onClick: "addIngredient('ingredient-field')"}
-        Add Ingredient
-      #ingredient-field
+  .create-recipe-header.rounded
+    %h3.mx2.my1
+      New Recipe
+    .recipe-info.py1
+      = text_field_tag :recipe_name, nil, placeholder: "recipe name", class: "mx2", required: true
+      = text_field_tag :recipe_station, nil, placeholder: "recipe station", class: "mx2", required: true
 
-    .instructions.col.col-6
-      %h4.m0
+
+  .create-recipe-details.m1.flex.flex-column.items-center
+    .recipe-details-headers.flex.justify-between
+      %h4.m1.p1.border-bottom
+        Ingredients
+        %button.add_ingredient.px1.m2.rounded{type: "button", onClick: "addIngredient('ingredient-field')"}
+          Add Ingredient
+
+      %h4.m1.p1.border-bottom
         Instructions
-      %button.add_instruction.px1.m1.rounded{type: "button", onClick: "addInstruction('instruction-field')"}
-        Add Step
-      #instruction-field
+        %button.add_instruction.px1.m2.rounded{type: "button", onClick: "addInstruction('instruction-field')"}
+          Add Step
+
+    .recipe-details-body.flex.justify-between
+      .ingredients.flex.flex-column.items-center
+        #ingredient-field
+
+      .instructions.flex.flex-column.items-center
+        #instruction-field
   = submit_tag "Recipe Complete", class: "finish-recipe p1 m1 rounded bold"

@@ -1,4 +1,5 @@
-= form_tag notifications_path do
-  = email_field_tag :user_email, nil, placeholder: "teammember@example.com", required: true
-  = select_tag :role, options_for_select(["chef", "cook"])
-  = submit_tag "Invite Team Member"
+.invite-user-form.rounded
+  = form_tag notifications_path, class: "flex flex-column items-center" do
+    = email_field_tag :user_email, nil, placeholder: "teammember@example.com", required: true
+    = select_tag :role, options_for_select(["cook", "chef"]), class: "role-select"
+    = submit_tag "Invite Team Member"
