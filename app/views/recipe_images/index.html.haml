@@ -2,7 +2,7 @@
 .recipe-index
   - @images.each do |image|
     .index-recipe-image.flex.items-center.m2
-      = image_tag(image.recipe_image_url.to_s)
+      = image_tag(image.recipe_image_url(:index).to_s)
       %p
         = image.caption
 
