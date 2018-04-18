@@ -1,5 +1,14 @@
 @import 'vars_mixins';
 
+.new-restaurant-form {
+  width: 250px;
+  padding: 15px;
+  background-color: $background-gray;
+  margin: 30px auto;
+  @include column-center;
+  @include sub-header;
+}
+
 .restaurant-show-details {
   @include column-center;
   @include sub-header;
