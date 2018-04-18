@@ -1,6 +1,6 @@
 # README
 
-![alt text](https://www.dropbox.com/s/crypuj46fxt5r4k/recipe_resource_schema1.png?dl=0)
+![alt text](https://imgur.com/m3Jg1ri)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
