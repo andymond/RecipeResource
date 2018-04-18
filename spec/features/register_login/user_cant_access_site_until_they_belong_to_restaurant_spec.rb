@@ -11,6 +11,6 @@ describe "User creates account with invalid restaurant" do
     expect(page).to have_content("You don't belong to a restaurant yet!")
     expect(page).to have_css(".new-restaurant-form")
     expect(page).to have_button("Register")
-    expect(page).to have_content("Or request to join a restaurant")
+    expect(page).to have_link("Log out")
   end
 end
