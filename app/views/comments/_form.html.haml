@@ -1,0 +1,3 @@
+= form_tag restaurant_recipe_comments_path(current_restaurant, @recipe.slug), class: "comment-form" do
+  = text_area_tag :body, nil, placeholder: "Recipe feedback"
+  = submit_tag "Comment", class: "rounded"

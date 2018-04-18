@@ -1,0 +1,5 @@
+- @recipe.comments.each do |comment|
+  .recipe-comment.rounded.m1
+    = "#{comment.author} wrote:"
+    %hr
+    = comment.body
