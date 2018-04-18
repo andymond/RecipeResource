@@ -17,6 +17,7 @@ gem 'basscss-rails'
 gem "haml-rails", "~> 1.0"
 gem 'material_icons'
 gem 'carrierwave'
+gem 'fog-aws'
 gem 'mini_magick'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
