@@ -8,6 +8,7 @@ describe Recipe do
     it {should have_many(:favorites)}
     it {should have_many(:recipe_images)}
     it {should have_many(:users)}
+    it {should have_many(:comments)}
   end
 
   describe "validations" do
