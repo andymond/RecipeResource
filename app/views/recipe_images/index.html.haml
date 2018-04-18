@@ -5,3 +5,5 @@
       = image_tag(image.recipe_image_url.to_s)
       %p
         = image.caption
+
+    = link_to "Delete Image", chef_restaurant_recipe_image_path(current_restaurant, @recipe, image), method: :delete
