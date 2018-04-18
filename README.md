@@ -1,6 +1,6 @@
 # README
 
-![alt text](https://imgur.com/m3Jg1ri)
+![schema](https://i.imgur.com/m3Jg1ri.png)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
