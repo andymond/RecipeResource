@@ -31,6 +31,10 @@
         = step
 
 - if "chef plaform_admin".include?(current_role)
-  .recipe-options.flex.justify-center.mb4
+  .recipe-options.flex.justify-center.mb2
     = link_to edit_chef_restaurant_recipe_path(current_restaurant, slug: @recipe.slug) do
       = button_tag "Edit Recipe", class: "rounded m1 show-edit-recipe", type: "button"
+
+.recipe-comments.flex.flex-column.items-center
+  = render partial: "comments/form"
+  = render partial: "comments/index"

@@ -4,6 +4,10 @@ class RecipePresenter
     @recipe = Recipe.find_by(slug: slug)
   end
 
+  def comments
+    recipe.comments
+  end
+
   def primary_image
     if recipe.recipe_images.empty?
       "tray.png"
