@@ -7,8 +7,9 @@
   .recipe-image
     .recipe-image-crop-outer
       = image_tag(@recipe.primary_image, class: "recipe-image-crop-inner")
-    = link_to new_chef_restaurant_recipe_image_path(current_restaurant, @recipe.slug) do
-      = button_tag "Add Image", id: "add-image-to-recipe", class: "rounded m1", type: "button"
+    - if ["chef", "admin"].include?(current_role)
+      = link_to new_chef_restaurant_recipe_image_path(current_restaurant, @recipe.slug) do
+        = button_tag "Add Image", id: "add-image-to-recipe", class: "rounded m1", type: "button"
 
   .recipe-ingredients.m2
     %table.m3

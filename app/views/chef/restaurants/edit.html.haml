@@ -1,6 +1,7 @@
-= form_for([:chef, @restaurant]) do |f|
-  = f.text_field :name
-  = f.text_field :address
-  = f.text_field :zipcode
-  = f.telephone_field :phone_number
-  = f.submit "Update Info"
+.update-restaurant-form
+  = form_for([:chef, @restaurant], html: {class: "flex flex-column"}) do |f|
+    = f.text_field :name
+    = f.text_field :address
+    = f.text_field :zipcode
+    = f.telephone_field :phone_number
+    = f.submit "Update Info"

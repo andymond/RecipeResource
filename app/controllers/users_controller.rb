@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :verify_user, only: [:edit]
 
   def create
     app_credential = AppCredential.new(credential_params)
@@ -55,6 +56,12 @@ class UsersController < ApplicationController
 
     def invite_params
       params.permit(:role, :restaurant)
+    end
+
+    def verify_user
+      unless current_user.id == params[:id]
+        redirect_to dashboard_index_path, notice: "User doesn't exist"
+      end
     end
 
 end
