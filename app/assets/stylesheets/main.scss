@@ -11,8 +11,12 @@ body {
 }
 
 .notice {
+  text-align: center;
   @include text;
-  background-color: $background-ivory;
+  width: 75%;
+  position: fixed;
+  left: 50%;
+  margin-left: -37.5%;
 }
 
 #main {
@@ -26,6 +30,11 @@ body {
 
 .favorited {
   color: yellow;
+}
+
+.logout-button {
+  @include text;
+  margin: 30px;
 }
 
 .welcome-header {

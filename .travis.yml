@@ -5,11 +5,7 @@ services:
 
 before_script:
   - psql -c 'create database kitchen_keeper_test;' -U postgres
-  # - "export DISPLAY=:99.0"
-  # - "sh -e /etc/init.d/xvfb start"
-  # - sleep 3
-  # - bundle exec rackup
-  # - sleep 3
+
 
 before_install:
 - gem install geckodriver-helper
@@ -20,9 +16,3 @@ addons:
   - MOZ_HEADLESS=1
 addons:
   firefox: latest
-
-# addons:
-# sauce_connect:
-#   username: andymond
-#   access_key:
-#     secure: Wc58tCGGIOLFdvfiNLWs+QZR2r3xYjAclPN5Ksac5cuZNDsLo8ixB/sJPDqyszPVojEiE0rAANJU3FXkUWDjES/yVaodnMttvN/Kha5DNc7fi1GNBp1YqVJ0TfuzcrdhWFWuB7V4f9eMb4sM6z/GyIF6fkPP1mEzAC/aYICzRx7aBRwHKvz9ClWbTlTR0Tesz/uX36KQxm9W/FkCpbW7yPjVZbuNM3MDTOHl0ZPxyeR6voLylsOim9tmSS4qC6Vlm1HugbGfvAuZcT9dGbdAgCCx2LBGM63ce1QLeq9pIVc0BQV6V54w2Ld5YJ97lp1ITgEbtdecZ6nRuB74DkG46mnZfin9rwfuoz8tQssYfvxRFyAX5KuMIzaTi0CnguYV9bQaeb+VDBqVlQVZ9w0VrsVtxEk7cy4ktGssULnMHroF/dDePHCUVPaHELr3DVCiysggt/obr56qaWrKrt7vWGsI9tymYBOHz3M4QcRuVrmvtZO+Xrq+LDoR5X5H9kR4Uznn9lWKg2j2eMtK76UV4kQ/shvaaSGiJa6lzXqAVBbB4zohLPbaXIUqIMItTxPxUMCqKDd0ASEvn8oWR4KraVDIShSI+T3yX8uVELKh9/W8c8bpItnX2+vmWtimwgCKPMPwMmH9IYIrTDkUIn6vPV771bSQK1VWP02/SCz4K38=
