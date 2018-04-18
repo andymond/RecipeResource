@@ -1,11 +1,10 @@
 @import 'vars_mixins';
 
 .create-recipe {
-  text-align: center;
   @include text;
+  @include column-center;
   max-width: 85vw;
-  margin: 0 auto;
-  min-height: 90vh;
+  margin: 50px auto;
 }
 
 .recipe-header, .recipe-station {
@@ -54,13 +53,24 @@
   input { width: 250px; }
 }
 
-.ingredients {
-  @include column-center;
-  div {
-    width: 100%;
-    min-width: 500px;
-    margin: 1px;
+.recipe-details-headers {
+  width: 800px;
+}
+
+.recipe-details-body {
+  width: 830px;
+}
+
+.create-recipe-details {
+  background-color: $dark-background-gray;
+  padding: 0px 25px 25px 25px;
+  .instruction {
+    width: 300px;
   }
+}
+
+.ingredient-row {
+  width: 435px;
 }
 
 .specific-ingredient {
@@ -68,7 +78,7 @@
 }
 
 .qty, .unit {
-  min-width: 50px;
+  width: 50px;
 }
 
 .update-recipe {
@@ -146,4 +156,9 @@ input {
   height: 200px;
   width: 200px;
   background-color: $background-ivory;
+}
+
+.create-recipe-header {
+  width: 600px;
+  background-color: $background-gray;
 }
