@@ -44,6 +44,7 @@ class Permission
     return true if controller == "gsessions"
     return true if controller == "google_users"
     return true if controller == "recipes" && action.in?(%w(index show))
+    return true if controller == "recipe_images"
     return true if controller == "dashboard"
     return true if controller == "favorites"
   end
