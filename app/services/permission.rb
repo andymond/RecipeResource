@@ -37,11 +37,13 @@ class Permission
   end
 
   def cook_permissions
+    return true if controller == "users" && action == "edit"
+    return true if controller == "restaurants" && action == "show"
     return true if controller == "welcome"
     return true if controller == "sessions"
     return true if controller == "gsessions"
     return true if controller == "google_users"
-    return true if controller == "recipes"  && action.in?(%w(index show))
+    return true if controller == "recipes" && action.in?(%w(index show))
     return true if controller == "dashboard"
     return true if controller == "favorites"
   end
