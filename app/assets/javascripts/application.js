@@ -54,7 +54,7 @@ function toggleNav() {
 }
 
 function setNav() {
-  if(open == 'true') {
+  if(open == 'true' && document.getElementById("userCard")) {
     openNav()
   }
 }
