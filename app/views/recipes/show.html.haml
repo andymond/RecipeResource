@@ -1,8 +1,12 @@
-%h4.h4.recipe-station
+%h4.h4.recipe-station.flex.justify-center.items-center
   = @recipe.station
-%h1.h3.recipe-header
 
-  = @recipe.name
+.recipe-header.flex.justify-center.items-center
+  %h1.h3.inline
+    = @recipe.name
+  - favorite = current_user.recipes.find_by(slug: @recipe.slug) ? "color: rgb(244, 125, 66);" : "color: rgba(0, 0, 0, 0.29);"
+  %i.circle.favorite.material-icons{id: "favorite-#{@recipe.slug}", onclick: "favorite(event)", style: favorite, data: {uid: current_user.id, rid: @recipe.id}}
+    star
 .recipe-top.flex.justify-center.m2.p2
   .recipe-image
     .recipe-image-crop-outer

@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     end
 
     def verify_user
-      unless current_user.id == params[:id]
+      unless current_user.id.to_s == params[:id]
         redirect_to dashboard_index_path, notice: "User doesn't exist"
       end
     end

@@ -27,7 +27,7 @@ const register = document.querySelector('.register p')
 const registerForm = document.querySelector('.register .hidden')
 const login = document.querySelector('.login p')
 const loginField = document.querySelector('.login .hidden')
-var open = false;
+var open = sessionStorage.getItem('open');
 var ingredient_counter = 0;
 var instruction_counter = 0;
 
@@ -35,12 +35,14 @@ function openNav() {
     document.getElementById("userCard").style.width = "300px";
     document.getElementById("main").style.marginLeft = "300px";
     open = true
+    sessionStorage.setItem('open', 'true')
 }
 
 function closeNav() {
     document.getElementById("userCard").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
     open = false
+    sessionStorage.setItem('open', 'false')
 }
 
 function toggleNav() {
@@ -50,6 +52,14 @@ function toggleNav() {
     openNav()
   }
 }
+
+function setNav() {
+  if(open == 'true') {
+    openNav()
+  }
+}
+
+setNav()
 
 function hide(element, cl) {
   if(element.classList.contains(cl)) {

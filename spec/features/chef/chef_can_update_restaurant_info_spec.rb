@@ -6,8 +6,7 @@ describe "As a user with role 'chef'" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     VCR.use_cassette "No Reviews" do
-      visit root_path
-      expect(current_path).to eq(dashboard_index_path)
+      visit restaurant_path(user.restaurants.first)
     end
 
     VCR.use_cassette "No Reviews" do
@@ -15,7 +14,7 @@ describe "As a user with role 'chef'" do
       expect(current_path).to eq(edit_chef_restaurant_path(user.restaurants.first.slug))
     end
 
-    VCR.use_cassette "No Reviews" do  
+    VCR.use_cassette "No Reviews" do
       fill_in "restaurant_name", with: "Custom Restaurant Name"
       fill_in "restaurant_address", with: "123 Fake Street"
       fill_in "restaurant_zipcode", with: "12345"

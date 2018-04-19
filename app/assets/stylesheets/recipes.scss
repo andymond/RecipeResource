@@ -9,7 +9,6 @@
 
 .recipe-header, .recipe-station {
   @include sub-header;
-  @include column-center;
 }
 
 .recipe-image-crop-outer {
@@ -143,7 +142,7 @@ input {
   }
   p {
     padding: 2px;
-    background-color: $background-ivory;
+    background-color: $midground-ivory;
   }
   border-radius: 3px;
   box-shadow: 0px 1px 13px #0000003f;
