@@ -55,19 +55,19 @@ class Chef::RecipesController < ApplicationController
     end
 
     def ingredient_params
-      params.require(:ingredients).permit!.to_h
+      params.require(:ingredients).permit!.to_h unless params[:ingredients].nil?
     end
 
     def instruction_params
-      params.require(:instructions).permit!.to_h
+      params.require(:instructions).permit!.to_h unless params[:instructions].nil?
     end
 
     def qty_params
-      params.require(:qty).permit!.to_h
+      params.require(:qty).permit!.to_h unless params[:qty].nil?
     end
 
     def unit_params
-      params.require(:unit).permit!.to_h
+      params.require(:unit).permit!.to_h unless params[:unit].nil?
     end
 
     def recipe_update_params

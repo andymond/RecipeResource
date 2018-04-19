@@ -4,6 +4,7 @@
   z-index: 2;
 }
 .user-card {
+  @include text-no-margin;
   h4 {
     @include sub-header;
     font-weight: bold;
@@ -27,6 +28,15 @@
   border-radius: 3px;
   background-color: #FFFFFF9A;
   width: 85%;
+}
+
+.favorite-recipes {
+  text-align: center;
+}
+
+.yelp-reviews {
+  font-size: 16px;
+  line-height: 18px;
 }
 
 .review, .favorite {

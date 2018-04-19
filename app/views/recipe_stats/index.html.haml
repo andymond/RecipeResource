@@ -1,0 +1,18 @@
+.recipe-stats.flex.justify-around.m3
+  .recipes-by-favorite.flex.flex-column.m3.p2.rounded
+    .h3.bold.mb2
+      Recipes By Favorites:
+      %hr
+    - @restaurant.recipes.by_popularity.each do |recipe|
+      .recipe-by-favorite.p1.rounded
+        = link_to recipe.name, restaurant_recipe_path(current_restaurant, recipe)
+        = recipe.favorites.count
+
+  .recipes-by-comments.flex.flex-column.m3.p2.rounded
+    .h3.bold.mb2
+      Recipes By Comments:
+      %hr
+    - @restaurant.recipes.by_comments.each do |recipe|
+      .recipe-by-comments.p1.rounded
+        = link_to recipe.name, restaurant_recipe_path(current_restaurant, recipe)
+        = recipe.comments.count

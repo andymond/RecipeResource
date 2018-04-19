@@ -15,7 +15,7 @@ class Review
   end
 
   def rating(number)
-    reviews[number][:rating] unless reviews.nil?
+    reviews[number][:rating].to_s unless reviews.nil?
   end
 
   def reviewer(number)
@@ -24,7 +24,7 @@ class Review
 
   def time(number)
     unless reviews.nil?
-      t = Time.new(reviews[number][:time_created])
+      t = Time.parse(reviews[number][:time_created])
       t.strftime("%b %d %Y")
     end
   end

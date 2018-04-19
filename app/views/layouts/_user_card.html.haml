@@ -9,7 +9,7 @@
 
   .favorite-recipes.m1
     = link_to user_favorites_path(current_user) do
-      .link-to-favorites-index.favorite
+      .link-to-favorites-index.favorite.bold
         Favorite Recipes
     - current_user.recipes.take(3).each do |recipe|
       = link_to restaurant_recipe_path(current_restaurant, recipe.slug) do
@@ -26,11 +26,13 @@
       = link_to current_reviews.url(n) do
         .review
           .restaurant-rating
-            = current_reviews.rating(n)
+          - unless yelp_ratings[current_reviews.rating(n)].nil?
+            = image_tag yelp_ratings[current_reviews.rating(n)], class: "restaurant-rating-image align-left"
           .review-text
             = current_reviews.text(n)
-            %div= current_reviews.reviewer(n)
-            %div= current_reviews.time(n)
+          .review-details.right-align
+            %div.italic= current_reviews.reviewer(n)
+            %div.italic= current_reviews.time(n)
 
   .user-options.mt2.mb4
     = link_to "Settings", edit_user_path(current_user), class: "update-profile"

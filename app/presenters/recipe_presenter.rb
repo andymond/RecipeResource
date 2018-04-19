@@ -4,6 +4,10 @@ class RecipePresenter
     @recipe = Recipe.find_by(slug: slug)
   end
 
+  def id
+    recipe.id
+  end
+
   def comments
     recipe.comments
   end
@@ -12,7 +16,7 @@ class RecipePresenter
     if recipe.recipe_images.empty?
       "tray.png"
     else
-      recipe.recipe_images.first.recipe_image_url.to_s
+      recipe.recipe_images.first.recipe_image_url(:index).to_s
     end
   end
 

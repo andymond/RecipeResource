@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :google_users, only: [:create]
   resources :sessions, only: [:create]
   resources :restaurants, only: [:show, :new, :create], param: :slug do
+    resources :recipe_stats, only: [:index]
     resources :recipes, only: [:index, :show], param: :slug do
       resources :recipe_images, only: [:index]
       resources :comments, only: [:create]
