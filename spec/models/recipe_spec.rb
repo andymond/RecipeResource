@@ -25,5 +25,20 @@ describe Recipe do
       expect(Recipe.filter_by_station("garde a mange")).to eq([recipe_1, recipe_2])
       expect(Recipe.filter_by_station("saute")).to eq([recipe_3])
     end
+
+    it "orders recipes by popularity" do
+      user_1 = create(:cook)
+      user_2 = create(:cook)
+      user_3 = create(:cook)
+      recipe_1 = user_1.restaurants.first.recipes.create(name: "soup", station: "garde a mange")
+      recipe_1.favorites.create(user_id: user_1.id)
+      recipe_1.favorites.create(user_id: user_2.id)
+      recipe_2 = user_1.restaurants.first.recipes.create(name: "salad", station: "garde a mange")
+      recipe_2.favorites.create(user_id: user_1.id)
+      recipe_3 = user_1.restaurants.first.recipes.create(name: "pork loin", station: "saute")
+
+      expect(Recipe.by_popularity.first).to eq(recipe_1)
+      expect(Recipe.by_popularity.last).to eq(recipe_2)
+    end
   end
 end

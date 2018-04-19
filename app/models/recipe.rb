@@ -29,6 +29,20 @@ class Recipe < ApplicationRecord
     end
   end
 
+  def self.by_popularity
+    select('recipes.*, COUNT(favorites.*) AS favorite_count')
+      .joins(:favorites)
+      .order('favorite_count DESC')
+      .group(:id)
+  end
+
+  def self.by_comments
+    select('recipes.*, COUNT(comments.*) AS comment_count')
+      .joins(:comments)
+      .order('comment_count DESC')
+      .group(:id)
+  end
+
   private
 
     def generate_slug
