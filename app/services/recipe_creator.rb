@@ -2,10 +2,10 @@ class RecipeCreator
 
   def initialize(restaurant, attrs)
     @recipe       = restaurant.recipes.create(name: attrs[:name], station: attrs[:station])
-    @ingredients  = attrs[:ingredients]
-    @qty          = attrs[:qty]
-    @unit         = attrs[:unit]
-    @instructions = attrs[:instructions]
+    @ingredients  = attrs[:ingredients] || {}
+    @qty          = attrs[:qty] || {}
+    @unit         = attrs[:unit] || {}
+    @instructions = attrs[:instructions] || {}
   end
 
   def create_recipe
