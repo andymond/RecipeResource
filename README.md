@@ -13,6 +13,7 @@
 * haml
 * SASS
 * yelp! API
+* AWS S3
 * Google OAuth
 
 ## Schema
