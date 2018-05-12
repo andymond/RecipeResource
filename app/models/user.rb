@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :user_roles
   has_many :roles, through: :user_roles
   has_many :restaurants, through: :user_roles
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :recipes, through: :favorites
 
   def is_site_admin?

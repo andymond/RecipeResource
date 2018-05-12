@@ -8,7 +8,7 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :recipe_ingredients
   has_many :instructions, dependent: :destroy
   belongs_to :restaurant
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
   has_many :recipe_images
   has_many :comments

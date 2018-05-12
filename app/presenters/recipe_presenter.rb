@@ -41,10 +41,12 @@ class RecipePresenter
   end
 
   def ingredients_with_quantities_and_units
+    return [["No instructions added yet", "qty", "unit"]] if recipe.ingredients.empty?
     ingredients.zip(quantities, units)
   end
 
   def instructions
+    return ["No instructions added yet"] if recipe.instructions.empty?
     recipe.instructions.map { |i| i.step }
   end
 

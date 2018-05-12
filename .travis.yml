@@ -11,8 +11,7 @@ before_install:
 - gem install geckodriver-helper
 - gem install selenium-webdriver
 
-addons:
-  env:
+env:
   - MOZ_HEADLESS=1
 addons:
   firefox: latest
